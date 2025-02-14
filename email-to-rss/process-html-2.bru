@@ -1,0 +1,949 @@
+meta {
+  name: process-html-2
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8787/process-html
+  body: text
+  auth: none
+}
+
+body:text {
+  <!DOCTYPE html><html lang=3D"en"><head><meta http-equiv=3D"Content-Type" co=
+  ntent=3D"text/html charset=3DUTF-8"><meta charset=3D"UTF-8"><meta name=3D"v=
+  iewport" content=3D"width=3Ddevice-width"><meta name=3D"x-apple-disable-mes=
+  sage-reformatting"><title>TLDR</title><meta name=3D"color-scheme" content=
+  =3D"light dark"><meta name=3D"supported-color-schemes" content=3D"light dar=
+  k"><style type=3D"text/css">
+  =09=09=09:root {
+  =09=09=09=09color-scheme: light dark; supported-color-schemes: light dark;
+  =09=09=09}
+  =09=09=09
+  =09=09=09*,
+  =09=09=09*:after,
+  =09=09=09*:before {
+  =09=09=09=09-webkit-box-sizing: border-box; -moz-box-sizing: border-box; bo=
+  x-sizing: border-box;
+  =09=09=09}
+  =09=09=09
+  =09=09=09* {
+  =09=09=09=09-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;
+  =09=09=09}
+  =09=09=09
+  =09=09=09html,
+  =09=09=09body,
+  =09=09=09.document {
+  =09=09=09=09width: 100% !important; height: 100% !important; margin: 0; pad=
+  ding: 0;
+  =09=09=09}
+  =09=09=09
+  =09=09=09body {
+  =09=09=09=09-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: g=
+  rayscale; text-rendering: optimizeLegibility;
+  =09=09=09}
+  =09=09=09
+  =09=09=09div[style*=3D"margin: 16px 0"] {
+  =09=09=09=09margin: 0 !important;
+  =09=09=09}
+  =09=09=09
+  =09=09=09table,
+  =09=09=09td {
+  =09=09=09=09mso-table-lspace: 0pt; mso-table-rspace: 0pt;
+  =09=09=09}
+  =09=09=09
+  =09=09=09table {
+  =09=09=09=09border-spacing: 0; border-collapse: collapse; table-layout: fix=
+  ed; margin: 0 auto;
+  =09=09=09}
+  =09=09=09
+  =09=09=09img {
+  =09=09=09=09-ms-interpolation-mode: bicubic; max-width: 100%; border: 0;
+  =09=09=09}
+  =09=09=09
+  =09=09=09*[x-apple-data-detectors] {
+  =09=09=09=09color: inherit !important; text-decoration: none !important;
+  =09=09=09}
+  =09=09=09
+  =09=09=09.x-gmail-data-detectors,
+  =09=09=09.x-gmail-data-detectors *,
+  =09=09=09.aBn {
+  =09=09=09=09border-bottom: 0 !important; cursor: default !important;
+  =09=09=09}
+  =09=09=09
+  =09=09=09.btn {
+  =09=09=09=09-webkit-transition: all 200ms ease; transition: all 200ms ease;
+  =09=09=09}
+  =09=09=09
+  =09=09=09.btn:hover {
+  =09=09=09=09background-color: #f67575; border-color: #f67575;
+  =09=09=09}
+  =09=09=09
+  =09=09=09* {
+  =09=09=09=09font-family: Arial, Helvetica, sans-serif; font-size: 18px;
+  =09=09=09}
+  =09=09=09
+  =09=09=09@media screen and (max-width: 600px) {
+  =09=09=09=09.container {
+  =09=09=09=09=09width: 100%; margin: auto;
+  =09=09=09=09}
+  =09=09=09=09.stack {
+  =09=09=09=09=09display: block!important; width: 100%!important; max-width: =
+  100%!important;
+  =09=09=09=09}
+  =09=09=09=09.btn {
+  =09=09=09=09=09display: block; width: 100%; text-align: center;
+  =09=09=09=09}
+  =09=09=09}
+  =09=09=09
+  =09=09=09body,
+  =09=09=09p,
+  =09=09=09td,
+  =09=09=09tr,
+  =09=09=09.body,
+  =09=09=09table,
+  =09=09=09h1,
+  =09=09=09h2,
+  =09=09=09h3,
+  =09=09=09h4,
+  =09=09=09h5,
+  =09=09=09h6,
+  =09=09=09div,
+  =09=09=09span {
+  =09=09=09=09background-color: #FEFEFE !important; color: #010101 !important=
+  ;
+  =09=09=09}
+  =09=09=09
+  =09=09=09@media (prefers-color-scheme: dark) {
+  =09=09=09=09body,
+  =09=09=09=09p,
+  =09=09=09=09td,
+  =09=09=09=09tr,
+  =09=09=09=09.body,
+  =09=09=09=09table,
+  =09=09=09=09h1,
+  =09=09=09=09h2,
+  =09=09=09=09h3,
+  =09=09=09=09h4,
+  =09=09=09=09h5,
+  =09=09=09=09h6,
+  =09=09=09=09div,
+  =09=09=09=09span {
+  =09=09=09=09=09background-color: #27292D !important; color: #FEFEFE !import=
+  ant;
+  =09=09=09=09}
+  =09=09=09}
+  =09=09=09
+  =09=09=09a {
+  =09=09=09=09color: inherit !important; text-decoration: underline !importan=
+  t;
+  =09=09=09}
+  
+  =09=09</style><!--[if mso | ie]>
+  =09=09<style type=3D"text/css">
+  =09=09=09a {
+  =09=09=09=09background-color: #FEFEFE !important; color: #010101 !important=
+  ;
+  =09=09=09}
+  =09=09=09@media (prefers-color-scheme: dark) {
+  =09=09=09=09a {
+  =09=09=09=09=09background-color: #27292D !important; color: #FEFEFE !import=
+  ant;
+  =09=09=09=09}
+  =09=09=09}
+  =09 </style>
+  =09=09=09<![endif]--></head><body class=3D"">
+  
+  
+  
+  
+  
+  <div style=3D"display: none; max-height: 0px; overflow: hidden;">Elon Musk&=
+  #039;s offer to buy OpenAI has a clear deadline: May 10. There is a stipula=
+  tion that the buyers are able to examine OpenAI&#039;s records&nbsp;=E2=80=
+  =8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+  =8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+  =8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+  =8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+  =8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+  =8C&nbsp;&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+  =E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+  =E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+  =E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+  =E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+  =E2=80=8C&nbsp;=E2=80=8C&nbsp;</div>
+  
+  
+  
+  
+  <div style=3D"display: none; max-height: 0px; overflow: hidden;">
+  <br>
+  </div>
+  
+  <table align=3D"center" class=3D"document"><tbody><tr><td valign=3D"top">
+  
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+  ass=3D"container" width=3D"600"><tbody><tr class=3D"inner-body"><td>
+  
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+  dth=3D"100%"><tbody><tr class=3D"header"><td bgcolor=3D"" class=3D"containe=
+  r">
+  
+  <table width=3D"100%"><tbody><tr><td class=3D"container">
+  
+  <table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspa=
+  cing=3D"0" style=3D"margin-top: 0px;" width=3D"100%"><tbody><tr><td style=
+  =3D"padding: 0px;">
+  
+  <table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspa=
+  cing=3D"0" width=3D"100%"><tbody><tr><td class=3D"container" style=3D"paddi=
+  ng: 15px 15px;">
+  <div style=3D"text-align: center;">
+  <span style=3D"margin-right: 0px;"><a href=3D"https://tracking.tldrnewslett=
+  er.com/CL0/https:%2F%2Ftldr.tech%2Fsignup%3Futm_source=3Dtldr/1/01000195043=
+  e4ac6-ef3666c0-d119-4b5d-a04d-b788c64055ac-000000/s8i2JeBeuYKWOcY_119YFKrc6=
+  bndj83QIKWQNXhzhhk=3D392" rel=3D"noopener noreferrer" target=3D"_blank"><sp=
+  an>Sign Up</span></a>
+  <span>|</span><span style=3D"margin-right: 2px; margin-left: 2px;"><a href=
+  =3D"https://tracking.tldrnewsletter.com/CL0/https:%2F%2Fadvertise.tldr.tech=
+  %2F%3Futm_source=3Dtldr%26utm_medium=3Dnewsletter%26utm_campaign=3Dadvertis=
+  etopnav/1/01000195043e4ac6-ef3666c0-d119-4b5d-a04d-b788c64055ac-000000/3zC0=
+  oknBEDIwFZ7VRHhAckp5AwoW9Dc41fjlvWR2LjI=3D392" rel=3D"noopener noreferrer" =
+  target=3D"_blank"><span>Advertise</span></a></span><span>|</span><span styl=
+  e=3D"margin-left: 2px;"><a href=3D"https://tracking.tldrnewsletter.com/CL0/=
+  https:%2F%2Fa.tldrnewsletter.com%2Fweb-version%3Fep=3D1%26lc=3D97172774-841=
+  d-11ef-a3a3-45a94feb4d56%26p=3D07c5bd12-eab9-11ef-a4e5-7958c005c6b2%26pt=3D=
+  campaign%26t=3D1739532946%26s=3D5217b13b5d2182e8493d744736b83cbaf2033f54149=
+  44dc1b87bf3b59c5fc9a8/1/01000195043e4ac6-ef3666c0-d119-4b5d-a04d-b788c64055=
+  ac-000000/kAKePeBzzebUlLgVUGVFVB0eUioziggAR4f1yi-hFDE=3D392"><span>View Onl=
+  ine</span></a></span>
+  <br>
+  </span></div>
+  </td></tr></tbody></table>
+  
+  <table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspa=
+  cing=3D"0" width=3D"100%"><tbody><tr><td class=3D"container" style=3D"text-=
+  align: center;"><span data-darkreader-inline-color=3D"" style=3D"--darkread=
+  er-inline-color:#3db3ff; color: rgb(51, 175, 255) !important; font-size: 30=
+  px;">T</span><span style=3D"font-size: 30px;"><span data-darkreader-inline-=
+  color=3D"" style=3D"color: rgb(232, 192, 96) !important; --darkreader-inlin=
+  e-color:#e8c163; font-size:30px;">L</span><span data-darkreader-inline-colo=
+  r=3D"" style=3D"color: rgb(101, 195, 173) !important; --darkreader-inline-c=
+  olor:#6ec7b2; font-size:30px;">D</span></span><span data-darkreader-inline-=
+  color=3D"" style=3D"--darkreader-inline-color:#dd6e6e; color: rgb(220, 107,=
+   107) !important; font-size: 30px;">R</span>
+  <br>
+  </td></tr></tbody></table>
+  
+  <br>
+  
+  <table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspa=
+  cing=3D"0" width=3D"100%"><tbody><tr id=3D"together-with"><td align=3D"cent=
+  er" height=3D"20" style=3D"vertical-align:middle !important;" valign=3D"mid=
+  dle" width=3D"100%"><strong style=3D"vertical-align:middle !important; heig=
+  ht: 100%;">Together With </strong>
+  <a href=3D"mailto:jobs@tldr.tech"><img src=3D"https://images.tldr.tech/tldr=
+  50.png" valign=3D"middle" style=3D"vertical-align: middle !important; heigh=
+  t: 100%;" alt=3D"TLDR"></a></td></tr></tbody></table>
+  
+  <table style=3D"table-layout: fixed; width:100%;" width=3D"100%"><tbody><tr=
+  ><td style=3D"padding:0;border-collapse:collapse;border-spacing:0;margin:0;=
+  ">
+  <div style=3D"text-align: center;">
+  
+  <h1><strong>TLDR <span id=3D"date">2025-02-14</span></strong></h1>
+  </div>
+  </td></tr>
+  <tr id=3D"sponsy-copy"><td class=3D"container" style=3D"padding: 15px 15px;=
+  ">
+  <div class=3D"text-block">
+  <span>
+                                  <a href=3D"mailto:jobs@tldr.tech">
+                                      <span>
+                                          <strong>TLDR is hiring curators for=
+   our new TLDR Fintech newsletter (Fully Remote, $100/hr)</strong>
+                                      </span>
+  </a>
+  <br>
+  <br>
+  <span style=3D"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, V=
+  erdana, sans-serif;">
+                                      TLDR is hiring part time curators to la=
+  unch our TLDR Fintech newsletter.<p></p><p>TLDR Fintech already has over 20=
+  0,000 pre-registered subscribers, it's a great way to build a personal bran=
+  d within the fintech community.</p><p>The ideal candidate would have deep e=
+  xperience working directly in the fintech space, and enjoy analyzing news a=
+  nd trends within the space.</p><p>Time commitment is <strong>~2-3 hours/wee=
+  k paid at a rate of $100/hr</strong>. To apply please send your LinkedIn or=
+   resume to <a href=3D"mailto:jobs@tldr.tech" rel=3D"noopener noreferrer nof=
+  ollow" target=3D"_blank"><span>jobs@tldr.tech</span></a> along with a coupl=
+  e sentences on why you'd be a good fit!
+  
+  
+  
+  </p>
+  </span></span></div>
+  </td></tr></tbody></table>
+  </td></tr></tbody></table>
+  </td></tr></tbody></table>
+  </td></tr>
+  <tr bgcolor=3D""><td class=3D"container">
+  
+  <table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspa=
+  cing=3D"0" width=3D"100%"><tbody><tr><td style=3D"padding: 0px;">
+  
+  <table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspa=
+  cing=3D"0" width=3D"100%"><tbody><tr><td class=3D"container" style=3D"paddi=
+  ng-top: 0px; padding-bottom: 0px;">
+  <div class=3D"text-block">
+  <div style=3D"text-align: center;"><span style=3D"font-size: 36px;">=F0=9F=
+  =93=B1</span></div></div>
+  </td></tr></tbody></table>
+  
+  <table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspa=
+  cing=3D"0" width=3D"100%"><tbody><tr><td class=3D"container" style=3D"paddi=
+  ng-top: 0px; padding-bottom: 0px;">
+  <div class=3D"text-block">
+  <div style=3D"text-align: center;">
+  
+  <h1><strong>Big Tech &amp; Startups</strong></h1>
+  </div>
+  </div>
+  </td></tr></tbody></table>
+  
+  <table style=3D"table-layout: fixed; width: 100%;" width=3D"100%"><tbody><t=
+  r><td style=3D"padding:0;border-collapse:collapse;border-spacing:0;margin:0=
+  ;" valign=3D"top">
+  
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+  dth=3D"100%"><tbody><tr><td class=3D"container" style=3D"padding: 15px 15px=
+  ;">
+  <div class=3D"text-block">
+  <span>
+                                  <a href=3D"https://tracking.tldrnewsletter.=
+  com/CL0/https:%2F%2Ftechcrunch.com%2F2025%2F02%2F13%2Ftiktok-is-back-on-the=
+  -app-store-and-the-play-store-in-the-u-s%2F%3Futm_source=3Dtldrnewsletter/1=
+  /01000195043e4ac6-ef3666c0-d119-4b5d-a04d-b788c64055ac-000000/UcVYBWAP8xLkw=
+  L5dydGTWANtyWUl_tPEn93j7fwnS2Q=3D392">
+                                      <span>
+                                          <strong>TikTok is back on the App S=
+  tore and the Play Store in the U.S. (2 minute read)</strong>
+                                      </span>
+  </a>
+  <br>
+  <br>
+  <span style=3D"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, V=
+  erdana, sans-serif;">
+                                      Both Apple and Google restored TikTok t=
+  o their app stores in the US on Thursday. Other ByteDance apps were also re=
+  stored. President Trump has said that he would like the US to own a 50% sha=
+  re in TikTok through a joint venture with other tech companies. Competing s=
+  ocial networks have been trying to bank on TikTok's uncertain future by rel=
+  easing rival features and apps.
+                                  </span>
+  </span>
+  </div>
+  </td></tr></tbody></table>
+  
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+  dth=3D"100%"><tbody><tr><td class=3D"container" style=3D"padding: 15px 15px=
+  ;">
+  <div class=3D"text-block">
+  <span>
+                                  <a href=3D"https://tracking.tldrnewsletter.=
+  com/CL0/https:%2F%2Ftechcrunch.com%2F2025%2F02%2F13%2Feon-musks-full-offer-=
+  letter-to-buy-openai-reveals-five-key-details%2F%3Futm_source=3Dtldrnewslet=
+  ter/1/01000195043e4ac6-ef3666c0-d119-4b5d-a04d-b788c64055ac-000000/TaH-ZeLY=
+  xwJynNMJK1343fsz9_RabrFeF99sZoZ5yEE=3D392">
+                                      <span>
+                                          <strong>Elon Musk's full offer lett=
+  er to buy OpenAI reveals five key details (3 minute read)</strong>
+                                      </span>
+  </a>
+  <br>
+  <br>
+  <span style=3D"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, V=
+  erdana, sans-serif;">
+                                      Elon Musk's offer to buy OpenAI for $97=
+  .4 billion has a clear deadline: May 10. There is a stipulation that the bu=
+  yers are able to examine OpenAI's financial and business records and interv=
+  iew OpenAI staff before the all-cash transaction is finalized. The offer un=
+  dermines Musk's legal claims that OpenAI's startup's assets can't be transf=
+  erred away for private gain. Musk will drop the bid to acquire OpenAI if th=
+  e board commits to keeping it as a nonprofit.
+                                  </span>
+  </span>
+  </div>
+  </td></tr></tbody></table>
+  
+  </td></tr></tbody></table>
+  
+  
+  <table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspa=
+  cing=3D"0" width=3D"100%"><tbody><tr><td class=3D"container" style=3D"paddi=
+  ng-top: 0px; padding-bottom: 0px;">
+  <div class=3D"text-block">
+  <div style=3D"text-align: center;"><span style=3D"font-size: 36px;">=F0=9F=
+  =9A=80</span></div>
+  </div>
+  </td></tr></tbody></table>
+  
+  <table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspa=
+  cing=3D"0" width=3D"100%"><tbody><tr><td class=3D"container" style=3D"paddi=
+  ng-top: 0px; padding-bottom: 0px;">
+  <div class=3D"text-block">
+  <div style=3D"text-align: center;">
+  
+  <h1><strong>Science &amp; Futuristic Technology</strong></h1>
+  </div>
+  </div>
+  </td></tr></tbody></table>
+  
+  <table style=3D"table-layout: fixed; width: 100%;" width=3D"100%"><tbody><t=
+  r><td style=3D"padding:0;border-collapse:collapse;border-spacing:0;margin:0=
+  ;" valign=3D"top">
+  
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+  dth=3D"100%"><tbody><tr><td class=3D"container" style=3D"padding: 15px 15px=
+  ;">
+  <div class=3D"text-block">
+  <span>
+                                  <a href=3D"https://tracking.tldrnewsletter.=
+  com/CL0/https:%2F%2Fwww.theguardian.com%2Fscience%2F2025%2Fjan%2F20%2Fbrain=
+  -implant-boost-mood-ultrasound-nhs-trial%3Futm_source=3Dtldrnewsletter/1/01=
+  000195043e4ac6-ef3666c0-d119-4b5d-a04d-b788c64055ac-000000/jUfHQwD4IEgDAuBT=
+  pg6mCjL5oXOthrt6AQTM4Kilo4c=3D392">
+                                      <span>
+                                          <strong>Brain implant that could bo=
+  ost mood by using ultrasound to go under NHS trial (3 minute read)</strong>
+                                      </span>
+  </a>
+  <br>
+  <br>
+  <span style=3D"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, V=
+  erdana, sans-serif;">
+                                      The UK's Advanced Research and Interven=
+  tion Agency (Aria) is funding a trial to test a brain-computer interface th=
+  at directly alters brain activity using ultrasound to boost mood. The techn=
+  ology could revolutionize the treatment of conditions such as depression, a=
+  ddiction, OCD, and epilepsy by rebalancing disrupted patterns of brain acti=
+  vity. The device was developed by a US-based non-profit called Forest Neuro=
+  tech. The trial will recruit patients who have had a part of their skull te=
+  mporarily removed so that the device can be tested without having to perfor=
+  m surgery. It will run for three and a half years starting in March, and if=
+   successful, the device will move into full clinical trials.
+                                  </span>
+  </span>
+  </div>
+  </td></tr></tbody></table>
+  
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+  dth=3D"100%"><tbody><tr><td class=3D"container" style=3D"padding: 15px 15px=
+  ;">
+  <div class=3D"text-block">
+  <span>
+                                  <a href=3D"https://tracking.tldrnewsletter.=
+  com/CL0/https:%2F%2Ftechcrunch.com%2F2025%2F02%2F13%2Favride-launches-sidew=
+  alk-delivery-bots-on-uber-eats-in-jersey-city%2F%3Futm_source=3Dtldrnewslet=
+  ter/1/01000195043e4ac6-ef3666c0-d119-4b5d-a04d-b788c64055ac-000000/EBgLngK8=
+  2wZFtR0k4lZEJ6iFrSUmhcuLOmbjSoi3Swc=3D392">
+                                      <span>
+                                          <strong>Avride launches sidewalk de=
+  livery bots on Uber Eats in Jersey City (2 minute read)</strong>
+                                      </span>
+  </a>
+  <br>
+  <br>
+  <span style=3D"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, V=
+  erdana, sans-serif;">
+                                      Uber is expanding its partnership with =
+  Avride to include autonomous deliveries in Jersey City. Customers in the ci=
+  ty can now have their orders delivered by one of Avride's autonomous sidewa=
+  lk delivery robots. Avride's first robotaxi deployment in the US will be in=
+   Dallas this year. The startup has also partnered with Grubhub to bring del=
+  ivery bots to university campuses across the US.
+                                  </span>
+  </span>
+  </div>
+  </td></tr></tbody></table>
+  
+  </td></tr></tbody></table>
+  
+  
+  <table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspa=
+  cing=3D"0" width=3D"100%"><tbody><tr><td class=3D"container" style=3D"paddi=
+  ng-top: 0px; padding-bottom: 0px;">
+  <div class=3D"text-block">
+  <div style=3D"text-align: center;"><span style=3D"font-size: 36px;">=F0=9F=
+  =92=BB</span></div></div>
+  </td></tr></tbody></table>
+  
+  <table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspa=
+  cing=3D"0" width=3D"100%"><tbody><tr><td class=3D"container" style=3D"paddi=
+  ng-top: 0px; padding-bottom: 0px;">
+  <div class=3D"text-block">
+  <div style=3D"text-align: center;">
+  
+  <h1><strong>Programming, Design &amp; Data Science</strong></h1>
+  </div>
+  </div>
+  </td></tr></tbody></table>
+  
+  <table style=3D"table-layout: fixed; width: 100%;" width=3D"100%"><tbody><t=
+  r><td style=3D"padding:0;border-collapse:collapse;border-spacing:0;margin:0=
+  ;" valign=3D"top">
+  
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+  dth=3D"100%"><tbody><tr><td class=3D"container" style=3D"padding: 15px 15px=
+  ;">
+  <div class=3D"text-block">
+  <span>
+                                  <a href=3D"https://tracking.tldrnewsletter.=
+  com/CL0/https:%2F%2Fpress.asimov.com%2Farticles%2Fai-enzymes%3Futm_source=
+  =3Dtldrnewsletter/1/01000195043e4ac6-ef3666c0-d119-4b5d-a04d-b788c64055ac-0=
+  00000/xQ3flRhMHQfFy1IcU7KGaPKkC89gmjOWsXCnu9gu6IQ=3D392">
+                                      <span>
+                                          <strong>AI-Designed Enzymes (7 minu=
+  te read)</strong>
+                                      </span>
+  </a>
+  <br>
+  <br>
+  <span style=3D"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, V=
+  erdana, sans-serif;">
+                                      One of the ultimate aims of protein des=
+  ign is to build entirely new enzymes from scratch. Scientists have traditio=
+  nally discovered enzymes in nature and then adapted them through trial and =
+  error. New advances in AI may eventually lead to ways to create bespoke enz=
+  ymes from the ground up, but doing so remains a formidable challenge. Many =
+  of the protein structural databases used to train models consist overwhelmi=
+  ngly of structures gleaned from 'frozen' images, preventing them from makin=
+  g accurate recreations of dynamic structures.
+                                  </span>
+  </span>
+  </div>
+  </td></tr></tbody></table>
+  
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+  dth=3D"100%"><tbody><tr><td class=3D"container" style=3D"padding: 15px 15px=
+  ;">
+  <div class=3D"text-block">
+  <span>
+                                  <a href=3D"https://tracking.tldrnewsletter.=
+  com/CL0/https:%2F%2Flinks.tldrnewsletter.com%2FHCRhct/1/01000195043e4ac6-ef=
+  3666c0-d119-4b5d-a04d-b788c64055ac-000000/qeCRYxqchb2oAqNzVqbhHYYo1LW7wRulg=
+  9C6VVIkxRY=3D392">
+                                      <span>
+                                          <strong>How I Automated My Computer=
+   Routine With macOS Folder Actions (5 minute read)</strong>
+                                      </span>
+  </a>
+  <br>
+  <br>
+  <span style=3D"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, V=
+  erdana, sans-serif;">
+                                      It's possible to use macOS folder actio=
+  ns to automate various tasks, including converting MOV to MP4 and images to=
+   WEBP, downloading videos from YouTube, and more. This article explains how=
+   to set these automations up. macOS folder actions turn folders into an int=
+  erface for any CLI app, making the desktop even more useful than ever.
+                                  </span>
+  </span>
+  </div>
+  </td></tr></tbody></table>
+  
+  </td></tr></tbody></table>
+  
+  
+  
+  <table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspa=
+  cing=3D"0" width=3D"100%"><tbody><tr><td class=3D"container" style=3D"paddi=
+  ng-top: 0px; padding-bottom: 0px;">
+  <div class=3D"text-block">
+  <div style=3D"text-align: center;"><span style=3D"font-size: 36px;">=F0=9F=
+  =8E=81</span></div></div>
+  </td></tr></tbody></table>
+  
+  <table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspa=
+  cing=3D"0" width=3D"100%"><tbody><tr><td class=3D"container" style=3D"paddi=
+  ng-top: 0px; padding-bottom: 0px;">
+  <div class=3D"text-block">
+  <div style=3D"text-align: center;"><strong><h1>Miscellaneous</h1></strong><=
+  /div>
+  </div>
+  </td></tr></tbody></table>
+  
+  <table bgcolor=3D"" style=3D"table-layout: fixed; width: 100%;" width=3D"10=
+  0%"><tbody><tr><td style=3D"padding:0;border-collapse:collapse;border-spaci=
+  ng:0;margin:0;" valign=3D"top">
+  
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+  dth=3D"100%"><tbody><tr><td class=3D"container" style=3D"padding: 15px 15px=
+  ;">
+  <div class=3D"text-block">
+  <span>
+                                  <a href=3D"https://tracking.tldrnewsletter.=
+  com/CL0/https:%2F%2Ftechcrunch.com%2F2025%2F02%2F13%2Farm-is-launching-its-=
+  own-chip-this-year-with-meta-as-a-customer%2F%3Futm_source=3Dtldrnewsletter=
+  /1/01000195043e4ac6-ef3666c0-d119-4b5d-a04d-b788c64055ac-000000/i_VRdmIWg-V=
+  b5bkE5IqbKRGEioRl4nw_kJlaXJIrYTE=3D392">
+                                      <span>
+                                          <strong>Arm is launching its own ch=
+  ip this year with Meta as a customer (1 minute read)</strong>
+                                      </span>
+  </a>
+  <br>
+  <br>
+  <span style=3D"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, V=
+  erdana, sans-serif;">
+                                      Arm has signed Meta as a customer and w=
+  ill start making chips this year. The first in-house Arm chip will be unvei=
+  led as early as this summer. The semiconductor company usually licenses its=
+   chip blueprints, so making its own chips is a notable change in strategy. =
+  This will turn some of Arm's existing customers into competitors.
+                                  </span>
+  </span>
+  </div>
+  </td></tr></tbody></table>
+  
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+  dth=3D"100%"><tbody><tr><td class=3D"container" style=3D"padding: 15px 15px=
+  ;">
+  <div class=3D"text-block">
+  <span>
+                                  <a href=3D"https://tracking.tldrnewsletter.=
+  com/CL0/https:%2F%2Fwww.lesswrong.com%2Fposts%2FvvgND6aLjuDR6QzDF%2Fmy-mode=
+  l-of-what-is-going-on-with-llms%3Futm_source=3Dtldrnewsletter/1/01000195043=
+  e4ac6-ef3666c0-d119-4b5d-a04d-b788c64055ac-000000/_2DobKQuKSt9mBg1beviOQYhE=
+  og9C6btN_qG_DhZ-5Y=3D392">
+                                      <span>
+                                          <strong>My model of what is going o=
+  n with LLMs (14 minute read)</strong>
+                                      </span>
+  </a>
+  <br>
+  <br>
+  <span style=3D"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, V=
+  erdana, sans-serif;">
+                                      People seem to be confused about what c=
+  an be concluded about scaling large language models. At this point, it is n=
+  ot plausible to precisely predict how far we are from unlocking all of the =
+  remaining functions that large language models are capable of. We don't eve=
+  n know all of the component functions of human intelligence - every time we=
+   solve something previously out of reach, it turns out that human-level gen=
+  erality is even further out of reach. The invention of human-level artifici=
+  al general intelligence will disrupt history, but that point is still prett=
+  y far off.
+                                  </span>
+  </span>
+  </div>
+  </td></tr></tbody></table>
+  
+  </td></tr></tbody></table>
+  
+  
+  <table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspa=
+  cing=3D"0" width=3D"100%"><tbody><tr><td class=3D"container" style=3D"paddi=
+  ng-top: 0px; padding-bottom: 0px;">
+  <div class=3D"text-block">
+  <div style=3D"text-align: center;"><span style=3D"font-size: 36px;">=E2=9A=
+  =A1</span></div></div>
+  </td></tr></tbody></table>
+  
+  <table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspa=
+  cing=3D"0" width=3D"100%"><tbody><tr><td class=3D"container" style=3D"paddi=
+  ng-top: 0px; padding-bottom: 0px;">
+  <div class=3D"text-block">
+  <div style=3D"text-align: center;">
+  
+  <h1><strong>Quick Links</strong></h1>
+  </div>
+  </div>
+  </td></tr></tbody></table>
+  
+  <table bgcolor=3D"" style=3D"table-layout: fixed; width: 100%;" width=3D"10=
+  0%"><tbody><tr><td style=3D"padding:0;border-collapse:collapse;border-spaci=
+  ng:0;margin:0;" valign=3D"top">
+  
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+  dth=3D"100%"><tbody><tr><td class=3D"container" style=3D"padding: 15px 15px=
+  ;">
+  <div class=3D"text-block">
+  <span>
+                                  <a href=3D"https://tracking.tldrnewsletter.=
+  com/CL0/https:%2F%2Fvale.rocks%2Fposts%2Fai-is-stifling-tech-adoption%3Futm=
+  _source=3Dtldrnewsletter/1/01000195043e4ac6-ef3666c0-d119-4b5d-a04d-b788c64=
+  055ac-000000/TOoXzc6bLyEZdSwonH5K467-M1fujmMtH4vBYoBV1Ag=3D392">
+                                      <span>
+                                          <strong>AI is Stifling Tech Adoptio=
+  n (6 minute read)</strong>
+                                      </span>
+  </a>
+  <br>
+  <br>
+  <span style=3D"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, V=
+  erdana, sans-serif;">
+                                      The integration of AI has stifled the a=
+  doption of new and potentially superior technologies due to training data c=
+  utoffs and system prompt influence.
+                                  </span>
+  </span>
+  </div>
+  </td></tr></tbody></table>
+  
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+  dth=3D"100%"><tbody><tr><td class=3D"container" style=3D"padding: 15px 15px=
+  ;">
+  <div class=3D"text-block">
+  <span>
+                                  <a href=3D"https://tracking.tldrnewsletter.=
+  com/CL0/https:%2F%2Fwww.alilleybrinker.com%2Fblog%2Fopen-source-software-an=
+  d-corporate-influence%2F%3Futm_source=3Dtldrnewsletter/1/01000195043e4ac6-e=
+  f3666c0-d119-4b5d-a04d-b788c64055ac-000000/n-WWnZFfo7KbcGvAk4jaAbK8zu0mKleW=
+  bqaTsCX-ybE=3D392">
+                                      <span>
+                                          <strong>Open Source Software and Co=
+  rporate Influence (34 minute read)</strong>
+                                      </span>
+  </a>
+  <br>
+  <br>
+  <span style=3D"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, V=
+  erdana, sans-serif;">
+                                      The large-scale engagement of corporati=
+  ons in open source needs to be treated seriously because it has and will co=
+  ntinue to have negative consequences even if every individual involved is p=
+  articipating in good faith.
+                                  </span>
+  </span>
+  </div>
+  </td></tr></tbody></table>
+  
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+  dth=3D"100%"><tbody><tr><td class=3D"container" style=3D"padding: 15px 15px=
+  ;">
+  <div class=3D"text-block">
+  <span>
+                                  <a href=3D"https://tracking.tldrnewsletter.=
+  com/CL0/https:%2F%2Ftechcrunch.com%2F2025%2F02%2F13%2Fmeta-cto-says-staff-s=
+  hould-quit-if-they-dont-like-metas-new-policies%2F%3Futm_source=3Dtldrnewsl=
+  etter/1/01000195043e4ac6-ef3666c0-d119-4b5d-a04d-b788c64055ac-000000/6lZiXy=
+  amKcgdYfZk3cuT8wKodo89LGrRUPqnjVsbzHA=3D392">
+                                      <span>
+                                          <strong>Meta CTO says staff should =
+  quit if they don't like Meta's new policies (1 minute read)</strong>
+                                      </span>
+  </a>
+  <br>
+  <br>
+  <span style=3D"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, V=
+  erdana, sans-serif;">
+                                      Meta CTO Andrew Bosworth said employees=
+   were free to quit if they think that it's okay to leak to the media becaus=
+  e of policy disagreements.
+                                  </span>
+  </span>
+  </div>
+  </td></tr></tbody></table>
+  
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+  dth=3D"100%"><tbody><tr><td class=3D"container" style=3D"padding: 15px 15px=
+  ;">
+  <div class=3D"text-block">
+  <span>
+                                  <a href=3D"https://tracking.tldrnewsletter.=
+  com/CL0/https:%2F%2Fwww.theverge.com%2Fnews%2F611987%2Fapple-vision-pro-dem=
+  o-fit-retail-app%3Futm_source=3Dtldrnewsletter/1/01000195043e4ac6-ef3666c0-=
+  d119-4b5d-a04d-b788c64055ac-000000/C6quTatAo510IqJrSyhqEyz1EfbaoQCsCdilW3Ev=
+  meM=3D392">
+                                      <span>
+                                          <strong>Mysterious new Vision Pro r=
+  etail app appears in the App Store (2 minute read)</strong>
+                                      </span>
+  </a>
+  <br>
+  <br>
+  <span style=3D"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, V=
+  erdana, sans-serif;">
+                                      Apple may soon allow third-party retail=
+  ers to sell its Vision Pro headset.
+                                  </span>
+  </span>
+  </div>
+  </td></tr></tbody></table>
+  
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+  dth=3D"100%"><tbody><tr><td class=3D"container" style=3D"padding: 15px 15px=
+  ;">
+  <div class=3D"text-block">
+  <span>
+                                  <a href=3D"https://tracking.tldrnewsletter.=
+  com/CL0/https:%2F%2Fwww.rkg.blog%2Fai-or-die.php%3Futm_source=3Dtldrnewslet=
+  ter/1/01000195043e4ac6-ef3666c0-d119-4b5d-a04d-b788c64055ac-000000/KweT35RE=
+  GIKiQYnp0yLKIeqWjmusu8jnAdIxumLe0bA=3D392">
+                                      <span>
+                                          <strong>AI or Die (7 minute read)</=
+  strong>
+                                      </span>
+  </a>
+  <br>
+  <br>
+  <span style=3D"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, V=
+  erdana, sans-serif;">
+                                      It may be possible to have 'a country o=
+  f geniuses' within a data center by as early as 2026 - companies will need =
+  to be prepared for this future.
+                                  </span>
+  </span>
+  </div>
+  </td></tr></tbody></table>
+  
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+  dth=3D"100%"><tbody><tr><td class=3D"container" style=3D"padding: 15px 15px=
+  ;">
+  <div class=3D"text-block">
+  <span>
+                                  <a href=3D"https://tracking.tldrnewsletter.=
+  com/CL0/https:%2F%2Ftimefold.ai%2Fblog%2Fhow-i-built-an-ai-company-to-save-=
+  my-open-source-project%3Futm_source=3Dtldrnewsletter/1/01000195043e4ac6-ef3=
+  666c0-d119-4b5d-a04d-b788c64055ac-000000/fgTOZIKNvAIXPeLvJ0ZHjnr0_mnIWFADTA=
+  SKGAcrD0I=3D392">
+                                      <span>
+                                          <strong>How I built an AI company t=
+  o save my open source project (23 minute read)</strong>
+                                      </span>
+  </a>
+  <br>
+  <br>
+  <span style=3D"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, V=
+  erdana, sans-serif;">
+                                      This post tells the story of how a doom=
+  ed open-source project was turned into a fast-growing AI company.
+                                  </span>
+  </span>
+  </div>
+  </td></tr></tbody></table>
+  
+  </td></tr></tbody></table>
+  
+  
+  <table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspa=
+  cing=3D"0" width=3D"100%"><tbody><tr><td align=3D"left" style=3D"word-break=
+  : break-word; vertical-align: top; padding: 5px 10px;">
+  
+  <p style=3D"padding: 0; margin: 0; font-size: 22px; color: #000000; line-he=
+  ight: 1.6; font-weight: bold;">
+  Love TLDR? Tell your friends and get rewards!
+  </p>
+  </td></tr>
+  <tr><td class=3D"container" style=3D"padding: 0px 10px 15px;">
+  <div class=3D"text-block">
+  Share your referral link below with friends to get free TLDR swag!
+  </div>
+  </td></tr>
+  <tr><td align=3D"left" style=3D"padding: 10px;">
+  <div class=3D"text-block">
+  <a href=3D"https://tracking.tldrnewsletter.com/CL0/https:%2F%2Frefer.tldr.t=
+  ech%2F2e71846b%2F/1/01000195043e4ac6-ef3666c0-d119-4b5d-a04d-b788c64055ac-0=
+  00000/Fui4kSV0lyQJwEsLIrbM8sH49R8m8AviV1iSlfdfRIQ=3D392" style=3D"color: #4=
+  64ba4; text-decoration: underline;">https://refer.tldr.tech/2e71846b/</a>
+  </div>
+  </td></tr>
+  <tr></tr>
+  <tr><td align=3D"left" style=3D"padding:5px 10px;">
+  <a href=3D"https://tracking.tldrnewsletter.com/CL0/https:%2F%2Fhub.sparklp.=
+  co%2Fsub_a050c87e6c51%2F1/1/01000195043e4ac6-ef3666c0-d119-4b5d-a04d-b788c6=
+  4055ac-000000/LGwEd_wfA9q1QikHuQJXUexpcwMoSDHePyVxNkc3qSQ=3D392" style=3D"f=
+  ont-size: 16px; line-height: 1.6;  padding: 10px 0; display: inline-block; =
+   text-decoration: underline;"><span style=3D"mso-text-raise:13pt; text-deco=
+  ration: underline;">Track your referrals here.</span></a>
+  </td></tr></tbody></table>
+  
+  
+  
+  
+  <table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspa=
+  cing=3D"0" width=3D"100%"><tbody><tr><td align=3D"left" style=3D"word-break=
+  : break-word; vertical-align: top; padding: 5px 10px;">
+  
+  <p style=3D"padding: 0; margin: 0; font-size: 22px; color: #000000; line-he=
+  ight: 1.6; font-weight: bold;">
+  Want to advertise in TLDR? =F0=9F=93=B0
+  </p>
+  <div class=3D"text-block" style=3D"margin-top: 10px;">
+  If your company is interested in reaching an audience of tech executives, d=
+  ecision-makers and engineers, you may want to <a href=3D"https://tracking.t=
+  ldrnewsletter.com/CL0/https:%2F%2Fadvertise.tldr.tech%2F%3Futm_source=3Dtld=
+  r%26utm_medium=3Dnewsletter%26utm_campaign=3Dadvertisecta/1/01000195043e4ac=
+  6-ef3666c0-d119-4b5d-a04d-b788c64055ac-000000/_7gkMLEQPBddoH2v7hKbo2PSz6HJH=
+  q2CwJjYCWDHdqc=3D392"><strong><span>advertise with us</span></strong></a>.
+  </div>
+  <br>
+  
+  <!-- New "Want to work at TLDR?" section -->
+  
+  <p style=3D"padding: 0; margin: 0; font-size: 22px; color: #000000; line-he=
+  ight: 1.6; font-weight: bold;">
+  Want to work at TLDR? =F0=9F=92=BC
+  </p>
+  <div class=3D"text-block" style=3D"margin-top: 10px;">
+  <a href=3D"https://tracking.tldrnewsletter.com/CL0/https:%2F%2Fjobs.ashbyhq=
+  .com%2Ftldr.tech/1/01000195043e4ac6-ef3666c0-d119-4b5d-a04d-b788c64055ac-00=
+  0000/fsRUj5OFo9nk8I6fQGtis3nTy5P8ANnozpyW5R8H04k=3D392" rel=3D"noopener nor=
+  eferrer" style=3D"color: #0000EE; text-decoration: underline;" target=3D"_b=
+  lank"><strong>Apply here</strong></a> or send a friend's resume to <a href=
+  =3D"mailto:jobs@tldr.tech" style=3D"color: #0000EE; text-decoration: underl=
+  ine;">jobs@tldr.tech</a> and get $1k if we hire them!
+  </div>
+  <br>
+  
+  <div class=3D"text-block">
+  If you have any comments or feedback, just respond to this email!
+  <br>
+  <br> Thanks for reading,
+  <br>
+  <a href=3D"https://tracking.tldrnewsletter.com/CL0/https:%2F%2Ftwitter.com%=
+  2Ftldrdan/1/01000195043e4ac6-ef3666c0-d119-4b5d-a04d-b788c64055ac-000000/45=
+  7ZcqapuLIEqUD26taPN_qWIRKg2oKGpMTg6Sbzl1Q=3D392"><span>Dan Ni</span></a> &a=
+  mp; <a href=3D"https://tracking.tldrnewsletter.com/CL0/https:%2F%2Ftwitter.=
+  com%2FSteveFlanders22/1/01000195043e4ac6-ef3666c0-d119-4b5d-a04d-b788c64055=
+  ac-000000/h7AyQ3vgXyFLTAIWhBKrDRKQ5F0RZe6905-RjPKu8wg=3D392"><span>Stephen =
+  Flanders</span></a>
+  <br>
+  <br>
+  </div>
+  <br>
+  </td></tr></tbody></table>
+  
+  <table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspa=
+  cing=3D"0" width=3D"100%"><tbody><tr><td class=3D"container" style=3D"paddi=
+  ng: 15px 15px;">
+  <div class=3D"text-block" id=3D"testing-id">
+  <a href=3D"https://tracking.tldrnewsletter.com/CL0/https:%2F%2Ftldr.tech%2F=
+  tech%2Fmanage%3Femail=3Doffice%252Bnl%2540christophpeter.at/1/01000195043e4=
+  ac6-ef3666c0-d119-4b5d-a04d-b788c64055ac-000000/Vxhht4A4-8YKDTXjTAYKz_euy8s=
+  mteCjRTXG9Kva1_g=3D392">Manage your subscriptions</a> to our other newslett=
+  ers on tech, startups, and programming. Or if TLDR isn't for you, please <a=
+   href=3D"https://tracking.tldrnewsletter.com/CL0/https:%2F%2Fa.tldrnewslett=
+  er.com%2Funsubscribe%3Fep=3D1%26l=3Dcfa2d55a-b7be-11e8-a3c9-06b79b628af2%26=
+  lc=3D97172774-841d-11ef-a3a3-45a94feb4d56%26p=3D07c5bd12-eab9-11ef-a4e5-795=
+  8c005c6b2%26pt=3Dcampaign%26pv=3D4%26spa=3D1739530852%26t=3D1739532946%26s=
+  =3D6b77a7d7bddeb71d581dd813a63225e09012795f226107dbf31df45c4b1fe7da/1/01000=
+  195043e4ac6-ef3666c0-d119-4b5d-a04d-b788c64055ac-000000/XDvv1WNEHPduRDGmCFD=
+  zHwYUfQLqk6Q-211NFPTzX0Q=3D392">unsubscribe</a>.
+  <br>
+  </div>
+  </td></tr></tbody></table>
+  </td></tr></tbody></table>
+  </td></tr></tbody></table>
+  </td></tr></tbody></table>
+  </td></tr></tbody></table>
+  
+  
+  
+  <img alt=3D"" src=3D"http://tracking.tldrnewsletter.com/CI0/01000195043e4ac=
+  6-ef3666c0-d119-4b5d-a04d-b788c64055ac-000000/AwcSmNzvKoO0kBcE8YPM16ZbFzs6e=
+  7fnYlPU6s_C4K0=3D392" style=3D"display: none; width: 1px; height: 1px;">
+  </body></html>
+}

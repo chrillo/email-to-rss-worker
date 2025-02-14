@@ -1,0 +1,588 @@
+meta {
+  name: process-html
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8787/process-html
+  body: text
+  auth: none
+}
+
+body:text {
+  <!DOCTYPE html>
+  <html lang=3D"en">
+    <head>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+      <meta charset=3D"utf-8">
+      <meta name=3D"viewport" content=3D"width=3Ddevice-width">
+      <meta name=3D"format-detection" content=3D"date=3Dno">
+      <meta name=3D"format-detection" content=3D"telephone=3Dno">
+     =20
+    <style>body {
+  margin: 0; padding: 0; width: 100%; background-color: white; -webkit-text-s=
+  ize-adjust: 100%; -ms-text-size-adjust: 100%; text-rendering: optimizeLegib=
+  ility; direction: ltr;
+  }
+  body {
+  font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-si=
+  ze: 15px; line-height: 1.48em;
+  }
+  img {
+  border: 0; outline: none; height: auto; text-decoration: none; max-width: 1=
+  00%; line-height: 100%;
+  }
+  @media screen and (max-width: 600px) {
+    table[id=3D"main"] {
+      max-width: 600px !important; width: 100% !important; min-width: 100% !i=
+  mportant;
+    }
+    .nomob {
+      display: none !important;
+    }
+    .onlymob {
+      display: inline-block !important;
+    }
+    .rightifmob {
+      text-align: right !important;
+    }
+    .som {
+      max-width: 33% !important;
+    }
+    div.footer p {
+      text-align: left !important;
+    }
+    div.footer td {
+      text-align: left !important;
+    }
+    .el-columns .column {
+      width: 100% !important;
+    }
+  }
+  </style>
+  </head>
+  <body style=3D"width: 100%; background-color: white; -webkit-text-size-adju=
+  st: 100%; -ms-text-size-adjust: 100%; text-rendering: optimizeLegibility; d=
+  irection: ltr; font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans=
+  -serif; font-size: 15px; line-height: 1.48em; margin-top: 0; margin-right: =
+  0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padd=
+  ing-bottom: 0; padding-left: 0;">
+  <div id=3D"preview" class=3D"preheader noarchive" style=3D"border-top-width=
+  : 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width=
+  : 0px; color: white; font-family: helvetica, arial; line-height: 0px; heigh=
+  t: 0px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; o=
+  verflow-y: hidden; padding-top: 0; padding-right: 0; padding-bottom: 0; pad=
+  ding-left: 0;">Plus writing JSONB queries with AI, a big Citus update, and =
+  (not) boiling the ocean. | </div>
+  <!--[if (gte mso 9)|(IE)]>
+  <table cellpadding=3D"0" cellspacing=3D"0" align=3D"center" bgcolor=3D"#fff=
+  fff" width=3D"600"><tr><td valign=3D"top" style=3D"width: 600px;" bgcolor=
+  =3D"#ffffff"><![endif]-->
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" id=
+  =3D"main" width=3D"100%" style=3D"table-layout: fixed; font-family: -apple-=
+  system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-heigh=
+  t: 1.48em; border-collapse: collapse; max-width: 600px; height: 100% !impor=
+  tant; direction: ltr; padding-top: 0px; padding-right: 0px; padding-bottom:=
+   0px; padding-left: 0px;">
+    <tr><td style=3D"font-family: -apple-system,BlinkMacSystemFont,Helvetica,=
+  sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse=
+  ;">
+    <div id=3D"content">    <!-- left/right splitbar -->
+      <table class=3D"el-splitbar" width=3D"100%" cellpadding=3D"0" cellspaci=
+  ng=3D"0" style=3D"border-collapse: collapse;"><tr>
+  <td width=3D"50%" align=3D"left" style=3D"padding-left: 4px; font-family: -=
+  apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line=
+  -height: 1.48em; border-collapse: collapse;"><p style=3D"font-size: 12px; c=
+  olor: #999999; text-transform: uppercase; line-height: 1.0em; margin-top: 0=
+  .8em; margin-bottom: 0.8em;">#=E2=80=8B588 =E2=80=94 February 13, 2025</p><=
+  /td>
+  <td width=3D"50%" align=3D"right" style=3D"padding-right: 4px; font-family:=
+   -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; li=
+  ne-height: 1.48em; border-collapse: collapse;"><p style=3D"font-size: 12px;=
+   text-transform: uppercase; line-height: 1.0em; margin-top: 0.8em; margin-b=
+  ottom: 0.8em;"><a href=3D"https://postgresweekly.com/issues/588" style=3D"t=
+  ext-decoration: none; color: #0088bb;">Web=C2=A0Version</a></p></td>
+  </tr></table>
+  <table class=3D"norss" id=3D"together" width=3D"100%" align=3D"center" styl=
+  e=3D"text-align: center; border-collapse: collapse; margin-top: 0; margin-r=
+  ight: 0; margin-bottom: 0; margin-left: 0;">
+    <tr><td style=3D"font-family: -apple-system,BlinkMacSystemFont,Helvetica,=
+  sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse=
+  ; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding=
+  -top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
+      <table align=3D"center" style=3D"margin-top: 4px; margin-bottom: 4px; b=
+  order-collapse: collapse;">
+        <tr>
+  <td style=3D"vertical-align: middle; text-align: right; text-transform: upp=
+  ercase; letter-spacing: -0.2px; font-weight: 500; color: #222; font-size: 0=
+  .9em; font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; l=
+  ine-height: 1.48em; border-collapse: collapse;">Together with=C2=A0</td>
+          <td style=3D"vertical-align: middle; text-align: left; font-family:=
+   -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; li=
+  ne-height: 1.48em; border-collapse: collapse;">
+            <a href=3D"https://postgresweekly.com/link/165749/3557ea5aa5" sty=
+  le=3D"outline: none; text-decoration: none; color: #0088bb; border-top-widt=
+  h: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;"=
+  >
+            <img src=3D"https://res.cloudinary.com/cpress/image/upload/c_limi=
+  t,w_480,h_135,q_auto/e_make_transparent/co_white,e_outline:18/copm/276290de=
+  .png" style=3D"max-width: 120px; outline: none; height: auto; text-decorati=
+  on: none; line-height: 100%; border-top-width: 0; border-right-width: 0; bo=
+  rder-bottom-width: 0; border-left-width: 0;" width=3D"120" alt=3D"Heroku">
+            </a>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-c=
+  ollapse: collapse;"><tr><td style=3D"height: 8px; font-family: -apple-syste=
+  m,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.=
+  48em; border-collapse: collapse;"></td></tr></table>
+      <!-- masthead -->
+      <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"back=
+  ground-color: #0088bb; text-align: center; color: #ffffff; border-collapse:=
+   collapse;" class=3D"el-masthead"><tr><td style=3D"font-family: -apple-syst=
+  em,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1=
+  .48em; border-collapse: collapse; padding-top: 0; padding-right: 12px; padd=
+  ing-bottom: 0; padding-left: 12px;"><p style=3D"font-size: 1.8em; font-weig=
+  ht: 600; line-height: 1.0em; margin-top: 0.8em; margin-bottom: 0.8em;">Post=
+  gres Weekly</p></td></tr></table>
+  <table width=3D"100%" class=3D"el-fullwidthimage " cellpadding=3D"0" cellsp=
+  acing=3D"0" style=3D"border-collapse: collapse;"><tr style=3D"line-height: =
+  1.0em;"><td style=3D"font-family: -apple-system,BlinkMacSystemFont,Helvetic=
+  a,sans-serif; font-size: 15px; line-height: 1.0em; border-collapse: collaps=
+  e;">
+    <a href=3D"https://postgresweekly.com/link/165750/3557ea5aa5" style=3D"te=
+  xt-decoration: none; color: #0088bb; line-height: 1.0em;"><img src=3D"https=
+  ://res.cloudinary.com/cpress/image/upload/w_1280,e_sharpen:60,q_auto/rg252h=
+  t4gr5tdyuipsea.jpg" alt=3D"" width=3D"640" style=3D"outline: none; height: =
+  auto; text-decoration: none; max-width: 100%; line-height: 1.0em; width: 10=
+  0%; border-bottom-color: #0088bb; border-bottom-style: solid; border-top-wi=
+  dth: 0; border-right-width: 0; border-bottom-width: 3px; border-left-width:=
+   0;"></a>
+  </td></tr></table>
+  
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+  item  " style=3D"border-collapse: collapse;"><tr><td style=3D"font-family: =
+  -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; lin=
+  e-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-righ=
+  t: 15px; padding-bottom: 0px; padding-left: 15px;">
+   =20
+    <p class=3D"desc" style=3D"color: #222; margin-top: 0.8em; margin-bottom:=
+   0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+  =3D"mainlink"><a href=3D"https://postgresweekly.com/link/165750/3557ea5aa5"=
+   title=3D"www.shayon.dev" style=3D"text-decoration: none; color: #0088bb; f=
+  ont-size: 1.1em; line-height: 1.4em;">Scaling Postgres without Boiling the =
+  Ocean</a></span> =E2=80=94 Postgres scales pretty far out of the box with t=
+  he default settings, but once a server starts getting some serious load =E2=
+  =80=98weird issues=E2=80=99 can start to rear their head. Shayon addresses =
+  some common issues of this type and the solutions for=C2=A0them.</p>
+    <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+  : 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">S=
+  hayon Mukherjee </p>
+  </td></tr></table>
+  
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+  item  " style=3D"border-collapse: collapse;"><tr><td style=3D"font-family: =
+  -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; lin=
+  e-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-righ=
+  t: 15px; padding-bottom: 0px; padding-left: 15px;">
+   =20
+    <p class=3D"desc" style=3D"color: #222; margin-top: 0.8em; margin-bottom:=
+   0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+  =3D"mainlink"><a href=3D"https://postgresweekly.com/link/165751/3557ea5aa5"=
+   title=3D"peter.eisentraut.org" style=3D"text-decoration: none; color: #008=
+  8bb; font-size: 1.05em;">How About Trailing Commas in SQL?</a></span> =E2=
+  =80=94 Could this be the simplest yet most requested SQL feature? It's impl=
+  emented in some dialects, but could it be implemented in Postgres's dialect=
+  ? And should it? It=E2=80=99s far trickier than it=C2=A0sounds.</p>
+    <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+  : 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">P=
+  eter Eisentraut </p>
+  </td></tr></table>
+  
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+  item  " style=3D"border-collapse: collapse;"><tr><td style=3D"font-family: =
+  -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; lin=
+  e-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-righ=
+  t: 15px; padding-bottom: 0px; padding-left: 15px;">
+    <a target=3D"_blank" href=3D"https://postgresweekly.com/link/165749/3557e=
+  a5aa5" style=3D"text-decoration: none; color: #0088bb;"><img src=3D"https:/=
+  /res.cloudinary.com/cpress/image/upload/c_limit,w_480,h_480,q_auto/copm/72e=
+  8f19b.png" width=3D"178" height=3D"50" style=3D"padding-top: 12px; padding-=
+  left: 12px; outline: none; height: auto; text-decoration: none; max-width: =
+  100%; line-height: 100%; border-top-width: 0; border-right-width: 0; border=
+  -bottom-width: 0; border-left-width: 0;" align=3D"right" alt=3D"" class=3D"=
+  som"></a>
+    <p class=3D"desc" style=3D"color: #222; margin-top: 0.8em; margin-bottom:=
+   0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+  =3D"mainlink"><a href=3D"https://postgresweekly.com/link/165749/3557ea5aa5"=
+   title=3D"fnf.dev" style=3D"text-decoration: none; color: #0088bb; font-siz=
+  e: 1.05em;">Find Your Flow with Heroku Postgres</a></span> =E2=80=94 The wo=
+  rld=E2=80=99s most advanced open source database is easier to use than ever=
+  . With Heroku=E2=80=99s PostgreSQL database service, you can get the most o=
+  ut of your data and leave the admin to us. So go ahead and focus on your da=
+  ta-driven apps =E2=80=93 we got=C2=A0you.</p>
+    <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+  : 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">H=
+  eroku Postgres <span style=3D"text-transform: uppercase; margin-left: 4px; =
+  font-size: 0.9em; border-radius: 2px; background-color: #ffc; color: #997 !=
+  important; padding-top: 1px; padding-right: 4px; padding-bottom: 1px; paddi=
+  ng-left: 4px; border-top-width: 1px; border-right-width: 1px; border-bottom=
+  -width: 1px; border-left-width: 1px; border-top-color: #eeb; border-right-c=
+  olor: #eeb; border-bottom-color: #eeb; border-left-color: #eeb; border-top-=
+  style: solid; border-right-style: solid; border-bottom-style: solid; border=
+  -left-style: solid;" class=3D"tag-sponsor">sponsor</span></p>
+  </td></tr></table>
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"content =
+  el-md " style=3D"border-collapse: collapse; color: #222;"><tr><td style=3D"=
+  font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-si=
+  ze: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px;=
+   padding-right: 15px; padding-bottom: 0px; padding-left: 15px;">
+  <p style=3D"margin-top: 0.5em; margin-bottom: 0.8em;"><strong style=3D"font=
+  -weight: 600;">QUICK BITS:</strong></p>
+  <ul>
+  <li style=3D"color: #222; line-height: 1.35em; margin-bottom: 1em; margin-l=
+  eft: 0px !important;">
+  <p style=3D"margin-top: 0.5em; margin-bottom: 0.8em;">=F0=9F=A4=96 Is it po=
+  ssible to <a href=3D"https://postgresweekly.com/link/165752/3557ea5aa5" sty=
+  le=3D"text-decoration: none; color: #0088bb; font-weight: 500 !important;">=
+  learn anything about Postgres by using a local, free LLM</a> (Phi 4 in this=
+   case) and have it help with building JSONB queries? Surprisingly,=C2=A0yes=
+  .</p>
+  </li>
+  <li style=3D"color: #222; line-height: 1.35em; margin-bottom: 1em; margin-l=
+  eft: 0px !important;">
+  <p style=3D"margin-top: 0.5em; margin-bottom: 0.8em;"><a href=3D"https://po=
+  stgresweekly.com/link/165753/3557ea5aa5" style=3D"text-decoration: none; co=
+  lor: #0088bb; font-weight: 500 !important;">Postgres 17 is now available on=
+   DigitalOcean's</a> managed Postgres=C2=A0service.</p>
+  </li>
+  <li style=3D"color: #222; line-height: 1.35em; margin-bottom: 1em; margin-l=
+  eft: 0px !important;">
+  <p style=3D"margin-top: 0.5em; margin-bottom: 0.8em;">The Timescale team <a=
+   href=3D"https://postgresweekly.com/link/165754/3557ea5aa5" style=3D"text-d=
+  ecoration: none; color: #0088bb; font-weight: 500 !important;">rounds up ei=
+  ght essential Postgres extensions,</a> along with a primer on how to instal=
+  l and use extensions generally. Surprisingly, TimescaleDB <em>isn't</em> in=
+   the eight!=C2=A0:-)</p>
+  </li>
+  <li style=3D"color: #222; line-height: 1.35em; margin-bottom: 1em; margin-l=
+  eft: 0px !important;">
+  <p style=3D"margin-top: 0.5em; margin-bottom: 0.8em;">=F0=9F=8E=A4 <a href=
+  =3D"https://postgresweekly.com/link/165755/3557ea5aa5" style=3D"text-decora=
+  tion: none; color: #0088bb; font-weight: 500 !important;">Robert Haas went =
+  on the <em>Talking Postgres</em> podcast</a> to talk about the importance o=
+  f mentoring developers who want to work on the Postgres=C2=A0project.</p>
+  </li>
+  </ul>
+  </td></tr></table>
+  
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+  item  " style=3D"border-collapse: collapse;"><tr><td style=3D"font-family: =
+  -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; lin=
+  e-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-righ=
+  t: 15px; padding-bottom: 0px; padding-left: 15px;">
+   =20
+    <p class=3D"desc" style=3D"color: #222; margin-top: 0.8em; margin-bottom:=
+   0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+  =3D"mainlink"><a href=3D"https://postgresweekly.com/link/165756/3557ea5aa5"=
+   title=3D"www.cybertec-postgresql.com" style=3D"text-decoration: none; colo=
+  r: #0088bb; font-size: 1.05em;">Dealing With <code style=3D'font-family: me=
+  nlo, monaco, "Ubuntu Mono", courier, monospace; font-weight: normal; backgr=
+  ound-color: inherit;'>"found xmin ... from before relfrozenxid"</code></a><=
+  /span> =E2=80=94 A=C2=A0look into a commonly reported error with easily mis=
+  understood wording. It occurs during (and breaks) the vacuuming process whe=
+  n an unfrozen tuple=E2=80=99s <code>xmin</code> predates the table=E2=80=99=
+  s <code>relfrozenxid</code>, signaling data corruption. Luckily, there are=
+  =C2=A0solutions.</p>
+    <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+  : 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">L=
+  aurenz Albe </p>
+  </td></tr></table>
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"content =
+  el-md " style=3D"border-collapse: collapse; color: #222;"><tr><td style=3D"=
+  font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-si=
+  ze: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px;=
+   padding-right: 15px; padding-bottom: 0px; padding-left: 15px;">
+  <p style=3D"margin-top: 0.5em; margin-bottom: 0.8em;">=F0=9F=93=84 <a href=
+  =3D"https://postgresweekly.com/link/165757/3557ea5aa5" style=3D"text-decora=
+  tion: none; color: #0088bb; font-weight: 500 !important;">Working with the =
+  Postgres Protocol From Rust</a> =E2=80=93 From the creator of the <a href=
+  =3D"https://postgresweekly.com/link/165758/3557ea5aa5" style=3D"text-decora=
+  tion: none; color: #0088bb; font-weight: 500 !important;">PgDog</a> shardin=
+  g=C2=A0proxy. <cite style=3D"color: #444; text-transform: uppercase; font-s=
+  ize: 0.8em; font-style: normal; white-space: nowrap; line-height: 1.4em;">L=
+  ev Kokotov</cite></p>
+  <p style=3D"margin-top: 0.8em; margin-bottom: 0.8em;">=E2=96=B6=EF=B8=8F <a=
+   href=3D"https://postgresweekly.com/link/165759/3557ea5aa5" style=3D"text-d=
+  ecoration: none; color: #0088bb; font-weight: 500 !important;">The Early Hi=
+  story of Spatial Databases and PostGIS</a>  <cite style=3D"color: #444; tex=
+  t-transform: uppercase; font-size: 0.8em; font-style: normal; white-space: =
+  nowrap; line-height: 1.4em;">Paul Ramsey</cite></p>
+  </td></tr></table>
+  <!-- normal content section -->
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"content =
+  el-content " style=3D"color: #222; border-collapse: collapse;"><tr><td styl=
+  e=3D"font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; fo=
+  nt-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top:=
+   0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;"><p sty=
+  le=3D"font-size: 1.3em; font-weight: 500; margin-top: 0.8em; margin-bottom:=
+   0.8em;">=F0=9F=9B=A0 Code and Tools</p></td></tr></table>
+  
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+  item  " style=3D"border-collapse: collapse;"><tr><td style=3D"font-family: =
+  -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; lin=
+  e-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-righ=
+  t: 15px; padding-bottom: 0px; padding-left: 15px;">
+   =20
+    <p class=3D"desc" style=3D"color: #222; margin-top: 0.8em; margin-bottom:=
+   0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+  =3D"mainlink"><a href=3D"https://postgresweekly.com/link/165760/3557ea5aa5"=
+   title=3D"www.citusdata.com" style=3D"text-decoration: none; color: #0088bb=
+  ; font-size: 1.05em;">Citus 13: Now with Postgres 17 Support</a></span> =E2=
+  =80=94 Citus is a long standing open source extension that makes it easier =
+  to horizontally scale Postgres. Bought by Microsoft some years ago, it cont=
+  inues to get releases, including this new one with Postgres 17 support, inc=
+  luding for distributed queries using <code>JSON_TABLE()</code> and improved=
+   support for distributed partitioned=C2=A0tables.</p>
+    <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+  : 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">N=
+  aisila Puka (Citus Data) </p>
+  </td></tr></table>
+  
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+  item  " style=3D"border-collapse: collapse;"><tr><td style=3D"font-family: =
+  -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; lin=
+  e-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-righ=
+  t: 15px; padding-bottom: 0px; padding-left: 15px;">
+   =20
+    <p class=3D"desc" style=3D"color: #222; margin-top: 0.8em; margin-bottom:=
+   0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+  =3D"mainlink"><a href=3D"https://postgresweekly.com/link/165761/3557ea5aa5"=
+   title=3D"github.com" style=3D"text-decoration: none; color: #0088bb; font-=
+  size: 1.05em;">Locksmith: Detect SQL Migration Issues Quickly</a></span> =
+  =E2=80=94 A new Rust-powered tool to detect table locks, table rewrites, an=
+  d modified tables, columns and indexes during a schema=C2=A0migration.</p>
+    <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+  : 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">T=
+  om Forbes </p>
+  </td></tr></table>
+  
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+  item  " style=3D"border-collapse: collapse;"><tr><td style=3D"font-family: =
+  -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; lin=
+  e-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-righ=
+  t: 15px; padding-bottom: 0px; padding-left: 15px;">
+   =20
+    <p class=3D"desc" style=3D"color: #222; margin-top: 0.8em; margin-bottom:=
+   0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+  =3D"mainlink"><a href=3D"https://postgresweekly.com/link/165762/3557ea5aa5"=
+   title=3D"pgroll.com" style=3D"text-decoration: none; color: #0088bb; font-=
+  size: 1.05em;">pgroll 0.9.0 Released with New Schema Migration Features</a>=
+  </span> =E2=80=94 <a href=3D"https://postgresweekly.com/link/165763/3557ea5=
+  aa5" style=3D"text-decoration: none; color: #0088bb;">pgroll</a> is a tool =
+  for performing reversible schema migrations on Postgres without taking the =
+  database down. v0.9 supports adding table-level constraints into the table =
+  creation process, as well as generated=C2=A0columns.</p>
+    <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+  : 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">A=
+  ndrew Farries </p>
+  </td></tr></table>
+  
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-item =
+  item  " style=3D"border-collapse: collapse;"><tr><td style=3D"font-family: =
+  -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; lin=
+  e-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-righ=
+  t: 15px; padding-bottom: 0px; padding-left: 15px;">
+   =20
+    <p class=3D"desc" style=3D"color: #222; margin-top: 0.8em; margin-bottom:=
+   0;"><span style=3D"font-weight: 600; font-size: 1.1em; color: #000;" class=
+  =3D"mainlink"><a href=3D"https://postgresweekly.com/link/165764/3557ea5aa5"=
+   title=3D"github.com" style=3D"text-decoration: none; color: #0088bb; font-=
+  size: 1.05em;">Pig v0.1.4: Now with 400 Postgres Extensions</a></span> =E2=
+  =80=94 <a href=3D"https://postgresweekly.com/link/165765/3557ea5aa5" style=
+  =3D"text-decoration: none; color: #0088bb;">Pig</a> (short for <em>Postgres=
+   Install Genius</em>) is one of the newer attempts to manage Postgres exten=
+  sions in a package-based fashion. The latest version adds support for Micro=
+  soft=E2=80=99s DocumentDB, pg_tracing, pg_cooldown, VectorChord-bm25, and=
+  =C2=A0more.</p>
+    <p class=3D"name" style=3D"color: #5a5a5a; margin-top: 4px; margin-bottom=
+  : 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">P=
+  igsty </p>
+  </td></tr></table>
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-c=
+  ollapse: collapse;"><tr><td style=3D"height: 8px; font-family: -apple-syste=
+  m,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.=
+  48em; border-collapse: collapse;"></td></tr></table>
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"el-subta=
+  ble classifieds" style=3D"background-color: #ffffee; margin-top: 15px; box-=
+  shadow: 6px 6px 0px #eee; border-collapse: collapse; border-top-width: 1px;=
+   border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;=
+   border-top-color: #eec; border-right-color: #eec; border-bottom-color: #ee=
+  c; border-left-color: #eec; border-top-style: solid; border-right-style: so=
+  lid; border-bottom-style: solid; border-left-style: solid;"><tr><td style=
+  =3D"font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; fon=
+  t-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: =
+  0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;">
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-c=
+  ollapse: collapse; margin-top: 0 !important;"><tr><td style=3D"height: 4px;=
+   font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-s=
+  ize: 15px; line-height: 1.48em; border-collapse: collapse;"></td></tr></tab=
+  le>
+  <!-- normal content section -->
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"content =
+  el-content " style=3D"color: #222; border-collapse: collapse;"><tr><td styl=
+  e=3D"font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; fo=
+  nt-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top:=
+   0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;">
+  	<p style=3D"font-size: 1.2em; text-transform: uppercase; font-weight: 600;=
+   display: inline-block; margin-bottom: 8px; margin-top: 0.8em;">=F0=9F=93=
+  =B0=C2=A0Classifieds</p>
+    </td></tr></table>
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"content =
+  el-md " style=3D"border-collapse: collapse; color: #222;"><tr><td style=3D"=
+  font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-si=
+  ze: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px;=
+   padding-right: 15px; padding-bottom: 0px; padding-left: 15px;">
+  <p style=3D"margin-top: 0.5em; margin-bottom: 0.8em;">Making the move from =
+  Oracle to Postgres? Read this in-depth guide to <a href=3D"https://postgres=
+  weekly.com/link/165766/3557ea5aa5" style=3D"text-decoration: none; color: #=
+  0088bb; font-weight: 500 !important;">replacing Oracle hints with pg_hint_p=
+  lan equivalents</a> &amp; when not to use=C2=A0hints.</p>
+  <hr>
+  <p style=3D"margin-top: 0.8em; margin-bottom: 0.8em;">=F0=9F=93=91 Start tr=
+  acking vital resource and activity metrics from your PostgreSQL databases w=
+  ith <a href=3D"https://postgresweekly.com/link/165767/3557ea5aa5" style=3D"=
+  text-decoration: none; color: #0088bb; font-weight: 500 !important;">Datado=
+  g's handy cheatsheet</a>.</p>
+  </td></tr></table>
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-c=
+  ollapse: collapse;"><tr><td style=3D"height: 12px; font-family: -apple-syst=
+  em,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1=
+  .48em; border-collapse: collapse;"></td></tr></table>
+  </td></tr></table>
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-c=
+  ollapse: collapse;"><tr><td style=3D"height: 24px; font-family: -apple-syst=
+  em,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1=
+  .48em; border-collapse: collapse;"></td></tr></table>
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" class=3D"content =
+  el-md releases flat" style=3D"border-collapse: collapse; color: #222;"><tr>=
+  <td style=3D"font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-s=
+  erif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padd=
+  ing-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;=
+  ">
+  <ul style=3D"padding-left: 0; margin-left: 0px; list-style-type: none; list=
+  -style-position: inside;">
+  <li style=3D"color: #222; line-height: 1.35em; margin-bottom: 1em; margin-l=
+  eft: 0px !important;">
+  <p style=3D"margin-top: 0.5em; margin-bottom: 0.8em;"><a href=3D"https://po=
+  stgresweekly.com/link/165768/3557ea5aa5" style=3D"text-decoration: none; co=
+  lor: #0088bb; font-weight: 500 !important; font-size: 1.08em; line-height: =
+  1.5em;">PeerDB 0.25</a> =E2=80=93 Stream data from Postgres to data warehou=
+  ses, queues and storage=C2=A0engines.</p>
+  </li>
+  <li style=3D"color: #222; line-height: 1.35em; margin-bottom: 1em; margin-l=
+  eft: 0px !important;">
+  <p style=3D"margin-top: 0.5em; margin-bottom: 0.8em;"><a href=3D"https://po=
+  stgresweekly.com/link/165769/3557ea5aa5" style=3D"text-decoration: none; co=
+  lor: #0088bb; font-weight: 500 !important; font-size: 1.08em; line-height: =
+  1.5em;">pgxmock 4.5</a> =E2=80=93 Mock driver to test Postgres interactions=
+   in=C2=A0Go.</p>
+  </li>
+  <li style=3D"color: #222; line-height: 1.35em; margin-bottom: 1em; margin-l=
+  eft: 0px !important;">
+  <p style=3D"margin-top: 0.5em; margin-bottom: 0.8em;"><a href=3D"https://po=
+  stgresweekly.com/link/165770/3557ea5aa5" style=3D"text-decoration: none; co=
+  lor: #0088bb; font-weight: 500 !important; font-size: 1.08em; line-height: =
+  1.5em;">Bytebase 3.4.0</a> =E2=80=93 A collaborative database devops platfo=
+  rm.</p>
+  </li>
+  <li style=3D"color: #222; line-height: 1.35em; margin-bottom: 1em; margin-l=
+  eft: 0px !important;">
+  <p style=3D"margin-top: 0.5em; margin-bottom: 0.8em;"><a href=3D"https://po=
+  stgresweekly.com/link/165771/3557ea5aa5" style=3D"text-decoration: none; co=
+  lor: #0088bb; font-weight: 500 !important; font-size: 1.08em; line-height: =
+  1.5em;">RisingWave 2.2</a> =E2=80=93 Postgres-compatible streaming=C2=A0dat=
+  abase.</p>
+  </li>
+  <li style=3D"color: #222; line-height: 1.35em; margin-bottom: 1em; margin-l=
+  eft: 0px !important;">
+  <p style=3D"margin-top: 0.5em; margin-bottom: 0.8em;"><a href=3D"https://po=
+  stgresweekly.com/link/165772/3557ea5aa5" style=3D"text-decoration: none; co=
+  lor: #0088bb; font-weight: 500 !important; font-size: 1.08em; line-height: =
+  1.5em;">postgres-meta 0.86</a> =E2=80=93 A RESTful API for managing=C2=A0Po=
+  stgres.</p>
+  </li>
+  <li style=3D"color: #222; line-height: 1.35em; margin-bottom: 1em; margin-l=
+  eft: 0px !important;">
+  <p style=3D"margin-top: 0.5em; margin-bottom: 0.8em;"><a href=3D"https://po=
+  stgresweekly.com/link/165773/3557ea5aa5" style=3D"text-decoration: none; co=
+  lor: #0088bb; font-weight: 500 !important; font-size: 1.08em; line-height: =
+  1.5em;">DoltgreSQL 0.17</a> =E2=80=93 Version-controlled=C2=A0Postgres-a-li=
+  ke.</p>
+  </li>
+  </ul>
+  </td></tr></table>
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-c=
+  ollapse: collapse;"><tr><td style=3D"height: 14px; font-family: -apple-syst=
+  em,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1=
+  .48em; border-collapse: collapse;"></td></tr></table>
+       <table class=3D"footer noarchive" width=3D"100%" cellpadding=3D"0" cel=
+  lspacing=3D"0" style=3D"border-top-width: 3px; border-top-color: #dddddd; b=
+  order-top-style: solid; border-collapse: collapse;"><tr><td style=3D"font-f=
+  amily: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15=
+  px; line-height: 1.48em; border-collapse: collapse; padding-top: 10px; padd=
+  ing-right: 15px; padding-bottom: 10px; padding-left: 15px;">
+          <p style=3D"margin-top: 1em; margin-right: 0; margin-bottom: 1em; m=
+  argin-left: 0;"><strong style=3D"text-transform: uppercase; font-weight: 60=
+  0;">Got a new email?</strong> You can <a href=3D"https://postgresweekly.com=
+  /edit_subscription/3557ea5aa5" style=3D"text-decoration: underline; color: =
+  #0088bb;">change your address here</a>.</p>
+          <hr style=3D"width: 60px; margin-left: 0; border-right-width: 0; bo=
+  rder-bottom-width: 0; border-left-width: 0; border-top-width: 2px; border-t=
+  op-color: #ddd; border-top-style: solid;">
+         =20
+          <p style=3D"margin-top: 1em; margin-right: 0; margin-bottom: 1em; m=
+  argin-left: 0;"><strong style=3D"text-transform: uppercase; font-weight: 60=
+  0;">Bored of us?</strong> <a href=3D"https://postgresweekly.com/leave/3557e=
+  a5aa5" style=3D"text-decoration: underline; color: #0088bb;">Click here to =
+  stop getting Postgres Weekly</a>.</p>
+          <hr style=3D"width: 60px; margin-left: 0; border-right-width: 0; bo=
+  rder-bottom-width: 0; border-left-width: 0; border-top-width: 2px; border-t=
+  op-color: #ddd; border-top-style: solid;">
+          <p style=3D"line-height: 1.3em; margin-top: 1em; margin-right: 0; m=
+  argin-bottom: 1em; margin-left: 0;"><strong style=3D"text-transform: upperc=
+  ase; font-weight: 600;">Got a link for us?</strong> Reply and tell us. We c=
+  an't include everything but we'll look at anything you send. <em>Thanks!</e=
+  m></p>
+         =20
+          <hr style=3D"width: 60px; margin-left: 0; border-right-width: 0; bo=
+  rder-bottom-width: 0; border-left-width: 0; border-top-width: 4px; border-t=
+  op-color: #66bbdd; border-top-style: solid;">
+        <p style=3D"font-size: 12px; line-height: 18px; margin-top: 1em; marg=
+  in-right: 0; margin-bottom: 1em; margin-left: 0;">Published by Cooper Press=
+   Ltd.<br>Fairfield Enterprise Centre, Louth, LN11 0LS, United Kingdom</p>
+        <p style=3D"font-size: 12px; line-height: 18px; margin-top: 1em; marg=
+  in-right: 0; margin-bottom: 1em; margin-left: 0;">Postgres, PostgreSQL and =
+  the Slonik Logo are trademarks or registered trademarks of the PostgreSQL C=
+  ommunity Association of Canada.</p>
+          <p style=3D"font-size: 0.8em; margin-top: 1em; margin-right: 0; mar=
+  gin-bottom: 1em; margin-left: 0;"><a href=3D"https://postgresweekly.com/lea=
+  ve/3557ea5aa5" style=3D"text-decoration: underline; color: #0088bb;">Stop g=
+  etting this newsletter</a>.</p>
+        </td></tr></table>
+  </div>
+    </td></tr>
+  </table>
+  <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
+  <div id=3D"footer" class=3D"noarchive">
+  
+    </div>
+  <!-- hey --><img src=3D"https://postgresweekly.com/open/588/3557ea5aa5" wid=
+  th=3D"3" height=3D"1" alt=3D"n" /><!-- hey --></body>
+  </html>
+  
+}
