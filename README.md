@@ -37,7 +37,7 @@ POST /debug/process-email - Debug endpoint for processing raw emails
 
 The service automatically processes incoming emails through Cloudflare Email Workers. It:
 
-Determines if the email is a signup confirmation
-Extracts articles from newsletter content
-Stores processed articles in KV storage
-Makes content available via RSS feed
+- Determines if the email is a signup confirmation
+- Extracts articles from newsletter content
+- Stores processed articles in KV storage
+- Makes content available via RSS feed
