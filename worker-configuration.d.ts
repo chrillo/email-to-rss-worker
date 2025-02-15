@@ -3,4 +3,6 @@
 interface Env {
 	EMAIL_TO_RSS_KV: KVNamespace;
 	OPENAI_API_KEY: string;
+	AUTH_USERNAME: string;
+	AUTH_PASSWORD: string;
 }
