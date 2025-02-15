@@ -26,10 +26,12 @@ OPENAI_API_KEY=your_key_here
 
 ## API Endpoints
 
+```
 GET /rss?email=user@example.com - Get RSS feed for a specific email
 GET /items?email=user@example.com - Get JSON list of articles
 POST /debug/process-html - Debug endpoint for processing HTML content
 POST /debug/process-email - Debug endpoint for processing raw emails
+```
 
 ## Email Processing
 
