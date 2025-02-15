@@ -1,5 +1,3 @@
-I'll help you create a basic README.md that explains the application's functionality and setup. Based on the code, this appears to be an email-to-RSS worker service that converts newsletter emails into RSS feeds.
-
 # Email to RSS Worker
 
 A Cloudflare Worker service that converts email newsletters into RSS feeds. It receives emails, processes them using AI to extract articles, and provides an RSS feed of the content.
