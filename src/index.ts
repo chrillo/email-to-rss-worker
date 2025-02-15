@@ -14,7 +14,11 @@ import { renderRss } from "./utils/rss";
 const app = new Hono<{ Bindings: Env }>();
 
 // Add authentication to all protected routes
-app.use("/*", authMiddleware);
+app.use("*", authMiddleware);
+
+app.get("/", (c) => {
+  return c.text("email to rss", 200);
+});
 
 app.get("/rss", async (c) => {
   const email = c.req.query("email");
