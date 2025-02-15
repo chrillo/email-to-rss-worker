@@ -1,7 +1,10 @@
-// Import Hono for HTTP routing.
 import { Hono } from "hono";
 
-import { getFeedArticles, processEmail, processHtml } from "./process";
+import {
+  getFeedArticles,
+  processEmail,
+  processHtmlNewsletter,
+} from "./process";
 
 import { hashEmail } from "./utils/email-utils";
 import { getFeedKey } from "./utils/keys";
@@ -37,14 +40,21 @@ app.get("/items", async (c) => {
   const feedArticles = await getFeedArticles(c.env, email);
   return c.json(feedArticles);
 });
-app.post("/process-html", async (c) => {
+
+app.post("/debug/process-html", async (c) => {
   const body = await c.req.text();
   const email = "read@chrillo.at";
-  const feedArticles = await processHtml(c.env, email, body);
+  const feedArticles = await processHtmlNewsletter(c.env, email, body);
   const rss = renderRss(email, feedArticles);
   return c.body(rss, 200, {
     "Content-Type": "application/rss+xml",
   });
+});
+
+app.post("/debug/process-email", async (c) => {
+  const body = await c.req.text();
+  const res = await processEmail(c.env, body);
+  return c.text("OK");
 });
 
 app.all("*", (c) => c.text("Not Found", 404));
@@ -60,6 +70,6 @@ export default {
     console.log("processing email");
     console.log("email event handler", message);
     // Use waitUntil() to ensure asynchronous processing completes.
-    ctx.waitUntil(processEmail(message, env));
+    ctx.waitUntil(processEmail(env, message.raw));
   },
 };

@@ -1,29 +1,66 @@
 import PostalMime from "postal-mime";
 import { hashEmail } from "./utils/email-utils";
-import { parseNewsletter } from "./utils/ai";
+import { isSignupConfirmation, parseNewsletter, parseSignup } from "./utils/ai";
 import { Article } from "./types";
-import { renderRss } from "./utils/rss";
+
 import { getFeedKey } from "./utils/keys";
-import { env } from "hono/adapter";
 
 export async function processEmail(
-  message: ForwardableEmailMessage,
-  env: Env
+  env: Env,
+  rawMessage: string | ReadableStream<Uint8Array<ArrayBufferLike>>,
+  to?: string | null
 ): Promise<void> {
   try {
-    const to = message?.to;
+    const parsedEmail = await PostalMime.parse(rawMessage);
+    if (!parsedEmail) {
+      console.error("[process] Error parsing email");
+      return;
+    }
+    to = parsedEmail.to ? parsedEmail.to[0].address : null;
+    console.log("[process] to", to);
+    if (!to) {
+      console.error("[process] No recipient address found in the email.");
+      return;
+    }
+    // TODO: figure out a way to remember that we've already subscribed
+    const isSignup = await isSignupConfirmation(
+      env,
+      parsedEmail?.subject || ""
+    );
 
-    const parsedEmail = await PostalMime.parse(message.raw);
+    console.log("[process] isSignup", isSignup);
 
-    await processHtml(env, to, parsedEmail.html || parsedEmail.text || "");
+    if (isSignup) {
+      await processSignup(env, parsedEmail.html || parsedEmail.text || "");
+      return;
+    }
 
-    console.log("Processed email for:", to);
+    await processHtmlNewsletter(
+      env,
+      to,
+      parsedEmail.html || parsedEmail.text || ""
+    );
+
+    console.log("[process] Processed email for:", to);
   } catch (e) {
     console.error("Error parsing newsletter:", e);
   }
 }
 
-export const processHtml = async (env: Env, email: string, html: string) => {
+export const processSignup = async (env: Env, body: string) => {
+  const signupUrl = await parseSignup(env, body || "");
+  console.log("[process] Signup URL:", signupUrl);
+  if (signupUrl) {
+    const res = await fetch(signupUrl);
+    console.log("[process] Signup URL response:", res.headers);
+  }
+};
+
+export const processHtmlNewsletter = async (
+  env: Env,
+  email: string,
+  html: string
+) => {
   const emailHash = await hashEmail(email);
   const articles = await parseContent(env, emailHash, html);
   const rss = await buildFeedArticles(env, emailHash, articles);
