@@ -28,7 +28,7 @@ export async function processEmail(
       parsedEmail?.subject || ""
     );
 
-    console.log("[process] isSignup", isSignup);
+    console.log("[process] isSignup", isSignup, parsedEmail?.subject);
 
     if (isSignup) {
       await processSignup(env, parsedEmail.html || parsedEmail.text || "");
@@ -52,7 +52,11 @@ export const processSignup = async (env: Env, body: string) => {
   console.log("[process] Signup URL:", signupUrl);
   if (signupUrl) {
     const res = await fetch(signupUrl);
-    console.log("[process] Signup URL response:", res.headers);
+    if (res.ok) {
+      console.log("[process] Signup URL response:");
+    } else {
+      console.log("[process] Signup URL response error:", res.statusText);
+    }
   }
 };
 
