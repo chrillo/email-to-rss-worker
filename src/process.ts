@@ -53,7 +53,7 @@ export const processSignup = async (env: Env, body: string) => {
   if (signupUrl) {
     const res = await fetch(signupUrl);
     if (res.ok) {
-      console.log("[process] Signup URL response:");
+      console.log("[process] successfully signed up");
     } else {
       console.log("[process] Signup URL response error:", res.statusText);
     }
@@ -66,9 +66,13 @@ export const processHtmlNewsletter = async (
   html: string
 ) => {
   const emailHash = await hashEmail(email);
-  const articles = await parseContent(env, emailHash, html);
-  const rss = await buildFeedArticles(env, emailHash, articles);
-  return rss;
+  const newsletterArticles = await parseContent(env, emailHash, html);
+  const feedArticles = await buildFeedArticles(
+    env,
+    emailHash,
+    newsletterArticles
+  );
+  return feedArticles;
 };
 
 const parseContent = async (env: Env, emailHash: string, content: string) => {
@@ -81,7 +85,7 @@ const parseContent = async (env: Env, emailHash: string, content: string) => {
   return articles;
 };
 
-const buildFeedArticles = async (
+export const buildFeedArticles = async (
   env: Env,
   emailHash: string,
   newArticles: Article[]
@@ -104,7 +108,12 @@ const buildFeedArticles = async (
     )
   ).filter((article) => article !== null);
 
-  const feedArticles = [...articles, ...newArticles];
+  const feedArticles = [...articles, ...newArticles].reduce((acc, article) => {
+    if (!acc.find((a) => a.id === article.id)) {
+      acc.push(article);
+    }
+    return acc;
+  }, [] as Article[]);
 
   const key = getFeedKey(emailHash);
   console.log("write feed key", key);
@@ -113,9 +122,18 @@ const buildFeedArticles = async (
   return feedArticles;
 };
 
-export const getFeedArticles = async (env: Env, email: string) => {
+export const getFeedArticles = async (
+  env: Env,
+  email: string,
+  rebuild?: boolean
+) => {
   const emailHash = await hashEmail(email);
   const key = getFeedKey(emailHash);
+
+  if (rebuild) {
+    return await buildFeedArticles(env, emailHash, []);
+  }
+
   const feedArticles = await env.EMAIL_TO_RSS_KV.get(key);
 
   if (!feedArticles) {

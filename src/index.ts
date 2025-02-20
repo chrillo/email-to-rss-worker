@@ -37,11 +37,13 @@ app.get("/items", async (c) => {
   const email = c.req.query("email");
   if (!email) return c.text("Missing email parameter", 400);
 
+  const rebuild = c.req.query("rebuild") === "true";
+
   const emailHash = await hashEmail(email);
   const key = getFeedKey(emailHash);
   console.log("read feed key", key);
 
-  const feedArticles = await getFeedArticles(c.env, email);
+  const feedArticles = await getFeedArticles(c.env, email, rebuild);
   return c.json(feedArticles);
 });
 
