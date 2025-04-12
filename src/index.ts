@@ -26,7 +26,6 @@ app.get("/rss", async (c) => {
 
   const emailHash = await hashEmail(email);
   const key = getFeedKey(emailHash);
-  console.log("read feed key", key);
 
   const feedArticles = await getFeedArticles(c.env, email);
   const rss = renderRss(emailHash, feedArticles);
@@ -41,7 +40,6 @@ app.get("/items", async (c) => {
 
   const emailHash = await hashEmail(email);
   const key = getFeedKey(emailHash);
-  console.log("read feed key", key);
 
   const feedArticles = await getFeedArticles(c.env, email, rebuild);
   return c.json(feedArticles);
