@@ -106,14 +106,15 @@ export async function parseNewsletter(
       prompt,
       onFinish({ usage, object }) {},
       onError(error) {
-        console.error(error);
+        console.error("[ai] stream error", error);
       },
     });
     for await (const partialObject of result.partialObjectStream) {
     }
 
     const articles = (await result.object).articles;
-    console.log("[ai] parsed articles", articles.length);
+    console.log("[ai] parsed articles count:", articles.length);
+    console.log("[ai] parsed articles:", JSON.stringify(articles, null, 2));
     return articles.map((article) => ({
       id: `${idPrefix}:${uuid7()}`,
       url: article.link,
