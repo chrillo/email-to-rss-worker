@@ -10,11 +10,11 @@
       "enabled": true
     }
   },
-  "kv_namespaces": [
+  "d1_databases": [
     {
-      "id": "ce1b70e9d2ab4b0197cc8cae005c746e",
-      "binding": "EMAIL_TO_RSS_KV"
+      "binding": "EMAIL_TO_RSS_DB",
+      "database_name": "email_to_rss",
+      "database_id": "cb0846c9-2426-40de-ab86-00e94da5ef5d"
     }
   ]
-
 }

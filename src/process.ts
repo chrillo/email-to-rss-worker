@@ -5,6 +5,17 @@ import { Article } from "./types";
 
 import { getFeedKey } from "./utils/keys";
 
+// Define interface for database row results
+interface ArticleRow {
+  id: string;
+  email_hash: string;
+  url: string;
+  title: string;
+  description: string;
+  created_at: string;
+  source: string | null;
+}
+
 export async function processEmail(
   env: Env,
   rawMessage: string | ReadableStream<Uint8Array<ArrayBufferLike>>,
@@ -39,7 +50,7 @@ export async function processEmail(
       env,
       to,
       parsedEmail.html || parsedEmail.text || "",
-      parsedEmail?.subject || parsedEmail.from.address || "unknown"
+      parsedEmail.from.name || parsedEmail?.subject || "unknown"
     );
 
     console.log("[process] Processed email for:", to);
@@ -68,83 +79,64 @@ export const processHtmlNewsletter = async (
   source: string
 ) => {
   const emailHash = await hashEmail(email);
-  const newsletterArticles = await parseContent(env, emailHash, html, source);
-  const feedArticles = await buildFeedArticles(
+  const newsletterArticles = await parseNewsletter(
     env,
     emailHash,
-    newsletterArticles
+    html,
+    source
   );
-  return feedArticles;
+  return await saveFeedArticles(env, emailHash, newsletterArticles);
 };
 
-const parseContent = async (
+export const saveFeedArticles = async (
   env: Env,
   emailHash: string,
-  content: string,
-  source: string
+  articles: Article[]
 ) => {
-  const articles = await parseNewsletter(env, emailHash, content, source);
+  const stmt = env.EMAIL_TO_RSS_DB.prepare(
+    "INSERT INTO articles (id, email_hash, url, title, description, created_at, source) VALUES (?, ?, ?, ?, ?, ?, ?)"
+  );
 
-  for (const article of articles) {
-    await env.EMAIL_TO_RSS_KV.put(article.id, JSON.stringify(article));
+  const batch = articles.map((article) => {
+    return stmt.bind(
+      article.id,
+      emailHash,
+      article.url,
+      article.title,
+      article.description,
+      article.createdAt.toISOString(),
+      article.source || null
+    );
+  });
+
+  if (batch.length > 0) {
+    await env.EMAIL_TO_RSS_DB.batch(batch);
   }
 
   return articles;
 };
 
-export const buildFeedArticles = async (
-  env: Env,
-  emailHash: string,
-  newArticles: Article[]
-) => {
-  const articlesKeys = await env.EMAIL_TO_RSS_KV.list({
-    prefix: `${emailHash}:`,
-    limit: 100,
-  });
-
-  const articles = (
-    await Promise.all(
-      articlesKeys.keys.map(async (key) => {
-        const raw = await env.EMAIL_TO_RSS_KV.get(key.name);
-        try {
-          return raw ? (JSON.parse(raw) as Article) : null;
-        } catch (e) {
-          return null;
-        }
-      })
-    )
-  ).filter((article) => article !== null);
-
-  const feedArticles = [...articles, ...newArticles].reduce((acc, article) => {
-    if (!acc.find((a) => a.id === article.id)) {
-      acc.push(article);
-    }
-    return acc;
-  }, [] as Article[]);
-
-  const key = getFeedKey(emailHash);
-  await env.EMAIL_TO_RSS_KV.put(key, JSON.stringify(feedArticles));
-
-  return feedArticles;
-};
-
-export const getFeedArticles = async (
-  env: Env,
-  email: string,
-  rebuild?: boolean
-) => {
+export const getFeedArticles = async (env: Env, email: string) => {
   const emailHash = await hashEmail(email);
-  const key = getFeedKey(emailHash);
 
-  if (rebuild) {
-    return await buildFeedArticles(env, emailHash, []);
-  }
+  const { results } = await env.EMAIL_TO_RSS_DB.prepare(
+    "SELECT * FROM articles WHERE email_hash = ? ORDER BY created_at DESC LIMIT 100"
+  )
+    .bind(emailHash)
+    .all<ArticleRow>();
 
-  const feedArticles = await env.EMAIL_TO_RSS_KV.get(key);
-
-  if (!feedArticles) {
+  if (!results || results.length === 0) {
     return [];
   }
 
-  return JSON.parse(feedArticles) as Article[];
+  const feedArticles: Article[] = results.map((row) => ({
+    id: row.id,
+    url: row.url,
+    title: row.title,
+    description: row.description,
+    createdAt: new Date(row.created_at),
+    source: row.source || undefined,
+  }));
+
+  return feedArticles;
 };
