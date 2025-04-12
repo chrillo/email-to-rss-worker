@@ -27,9 +27,9 @@ export function renderRss(emailHash: string, articles: Article[]): string {
     .map(
       (article) => `
     <item>
-      <guid isPermaLink="true">${escapeXml(article.url)}</guid>
+      <guid>${escapeXml(article.id)}</guid>
       <title>${escapeXml(article.title)}</title>
-      <link>${escapeXml(article.url)}</link>
+      <link isPermalink="true">${escapeXml(article.url)}</link>
       <description>${escapeXml(article.description)}</description>
       <pubDate>${new Date(article.createdAt).toUTCString()}</pubDate>
     </item>`
