@@ -27,8 +27,8 @@ export async function processEmail(
       env,
       parsedEmail?.subject || ""
     );
-
-    console.log("[process] isSignup", isSignup, parsedEmail?.subject);
+    console.log("[process] subject", parsedEmail?.subject);
+    console.log("[process] isSignup", isSignup);
 
     if (isSignup) {
       await processSignup(env, parsedEmail.html || parsedEmail.text || "");
@@ -38,12 +38,13 @@ export async function processEmail(
     await processHtmlNewsletter(
       env,
       to,
-      parsedEmail.html || parsedEmail.text || ""
+      parsedEmail.html || parsedEmail.text || "",
+      parsedEmail?.subject || parsedEmail.from.address || "unknown"
     );
 
     console.log("[process] Processed email for:", to);
   } catch (e) {
-    console.error("Error parsing newsletter:", e);
+    console.error("[process] Error parsing newsletter:", e);
   }
 }
 
@@ -63,10 +64,11 @@ export const processSignup = async (env: Env, body: string) => {
 export const processHtmlNewsletter = async (
   env: Env,
   email: string,
-  html: string
+  html: string,
+  source: string
 ) => {
   const emailHash = await hashEmail(email);
-  const newsletterArticles = await parseContent(env, emailHash, html);
+  const newsletterArticles = await parseContent(env, emailHash, html, source);
   const feedArticles = await buildFeedArticles(
     env,
     emailHash,
@@ -75,8 +77,13 @@ export const processHtmlNewsletter = async (
   return feedArticles;
 };
 
-const parseContent = async (env: Env, emailHash: string, content: string) => {
-  const articles = await parseNewsletter(env, emailHash, content);
+const parseContent = async (
+  env: Env,
+  emailHash: string,
+  content: string,
+  source: string
+) => {
+  const articles = await parseNewsletter(env, emailHash, content, source);
 
   for (const article of articles) {
     await env.EMAIL_TO_RSS_KV.put(article.id, JSON.stringify(article));
@@ -116,7 +123,6 @@ export const buildFeedArticles = async (
   }, [] as Article[]);
 
   const key = getFeedKey(emailHash);
-  console.log("write feed key", key);
   await env.EMAIL_TO_RSS_KV.put(key, JSON.stringify(feedArticles));
 
   return feedArticles;

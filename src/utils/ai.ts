@@ -37,9 +37,7 @@ export async function isSignupConfirmation(env: Env, subject: string) {
       model,
       schema: isSignupConfirmationSchema,
       prompt,
-      onFinish({ usage, object }) {
-        console.log("Token usage:", usage);
-      },
+      onFinish({ usage, object }) {},
       onError(error) {
         console.error(error);
       },
@@ -49,7 +47,7 @@ export async function isSignupConfirmation(env: Env, subject: string) {
 
     return (await result.object).signup;
   } catch (error) {
-    console.log(error);
+    console.log("[ai] signup confirmation error", error);
     return false;
   }
 }
@@ -68,9 +66,7 @@ export async function parseSignup(env: Env, body: string) {
       model,
       schema: confirmationSchema,
       prompt,
-      onFinish({ usage, object }) {
-        console.log("Token usage:", usage);
-      },
+      onFinish({ usage, object }) {},
       onError(error) {
         console.error(error);
       },
@@ -80,7 +76,7 @@ export async function parseSignup(env: Env, body: string) {
 
     const confirmationUrl = (await result.object).url;
 
-    console.log("Confirmation URL:", confirmationUrl);
+    console.log("[ai] Confirmation URL:", confirmationUrl);
     return confirmationUrl;
   } catch (error) {
     console.log(error);
@@ -89,8 +85,9 @@ export async function parseSignup(env: Env, body: string) {
 }
 export async function parseNewsletter(
   env: Env,
-  source: string,
-  body: string
+  idPrefix: string,
+  body: string,
+  source: string
 ): Promise<Article[]> {
   const openai = createOpenAI({
     apiKey: env.OPENAI_API_KEY,
@@ -98,7 +95,7 @@ export async function parseNewsletter(
   const model = openai("gpt-4o-mini");
   const html = sanitizeHtml(body);
 
-  console.log("html", html);
+  console.log("[ai] parse html", html);
 
   const prompt = `Extract all articles with links, headlines and short descriptions from this email newsletter. Ignore links like legal that are not part of the main content. Provide the result strictly in JSON format. \n\n${html}`;
 
@@ -107,9 +104,7 @@ export async function parseNewsletter(
       model,
       schema: articlesSchema,
       prompt,
-      onFinish({ usage, object }) {
-        console.log("Token usage:", usage);
-      },
+      onFinish({ usage, object }) {},
       onError(error) {
         console.error(error);
       },
@@ -118,13 +113,14 @@ export async function parseNewsletter(
     }
 
     const articles = (await result.object).articles;
-
+    console.log("[ai] parsed articles", articles.length);
     return articles.map((article) => ({
-      id: `${source}:${uuid7()}`,
+      id: `${idPrefix}:${uuid7()}`,
       url: article.link,
       title: article.title,
       description: article.description,
       createdAt: new Date(),
+      source,
     }));
   } catch (error) {
     console.error(error);

@@ -50,7 +50,7 @@ app.get("/items", async (c) => {
 app.post("/debug/process-html", async (c) => {
   const body = await c.req.text();
   const email = "read@chrillo.at";
-  const feedArticles = await processHtmlNewsletter(c.env, email, body);
+  const feedArticles = await processHtmlNewsletter(c.env, email, body, "test");
   const rss = renderRss(email, feedArticles);
   return c.body(rss, 200, {
     "Content-Type": "application/rss+xml",
@@ -73,9 +73,13 @@ export default {
     env: Env,
     ctx: ExecutionContext
   ) => {
-    console.log("processing email");
-    console.log("email event handler", message);
+    console.log("[email-handler] processing email");
+    console.log("[email-handler] email event handler: ", message.from);
     // Use waitUntil() to ensure asynchronous processing completes.
-    ctx.waitUntil(processEmail(env, message.raw));
+    ctx.waitUntil(
+      processEmail(env, message.raw).then(() => {
+        console.log("[email-handler] email processed successfully");
+      })
+    );
   },
 };
