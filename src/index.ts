@@ -41,7 +41,7 @@ app.get("/items", async (c) => {
   const emailHash = await hashEmail(email);
   const key = getFeedKey(emailHash);
 
-  const feedArticles = await getFeedArticles(c.env, email, rebuild);
+  const feedArticles = await getFeedArticles(c.env, email);
   return c.json(feedArticles);
 });
 

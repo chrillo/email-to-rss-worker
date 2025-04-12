@@ -32,6 +32,7 @@ export function renderRss(emailHash: string, articles: Article[]): string {
       <link isPermalink="true">${escapeXml(article.url)}</link>
       <description>${escapeXml(article.description)}</description>
       <pubDate>${new Date(article.createdAt).toUTCString()}</pubDate>
+      <author>${escapeXml(article.source || "")}</author>
     </item>`
     )
     .join("");
